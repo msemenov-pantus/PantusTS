@@ -1,6 +1,6 @@
 <template>
-  <nuxt-link to="/">
-    <img class="logo" :src="require('@/assets/img/logo.png')" alt="" />
+  <nuxt-link class="logo" to="/">
+    <img :src="require('@/assets/img/logo.png')" alt="" />
   </nuxt-link>
 </template>
 
@@ -10,4 +10,6 @@ export default {
 };
 </script>
 
-<!--<style scoped></style>-->
+<style lang="sass">
+@import "assets/sass/logo/logo"
+</style>

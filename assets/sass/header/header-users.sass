@@ -1,0 +1,25 @@
+.header-users
+  +d-display(flex)
+.header-users-block
+  +d-display(flex)
+  +align-items-center()
+  +mr(20px)
+  &:last-child
+    +mr(0px)
+.header-users-icons
+  height: 21px
+  width: 21px
+  +mr(13px)
+.header-user-info
+  +d-display(none)
+  +d-display-xs(flex)
+  +flex-column()
+.header-user-link
+  text-decoration: none
+  color: #777
+  transition: color linear 300ms
+  +fz(13px)
+  &:hover
+    color: #cb444e
+.header-users-count
+  font-weight: 700
