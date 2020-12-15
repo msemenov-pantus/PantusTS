@@ -1,0 +1,31 @@
+.wrapper-header-button_search
+  margin-right: auto
+  order: 4
+  height: 35px
+  +lg(order, 0)
+  +size(12)
+  +size-lg(7)
+  +mt(10px)
+  +mt-lg(0px)
+  +d-display(flex)
+  +align-items-center()
+
+.header-button_search-input
+  border: 2px solid #e1002b
+  border-radius: 3px 0 0 3px
+  border-right: 0
+  height: 100%
+  +fz(12px)
+  +pl(12px)
+  +size(12)
+
+.header-button_search
+  border: 0
+  border-radius: 0 3px 3px 0
+  background-color: #e1002b
+  color: #fff
+  height: 100%
+  +px(15px)
+  +fz(12px)
+  &:hover
+    background-color: #A0252C
