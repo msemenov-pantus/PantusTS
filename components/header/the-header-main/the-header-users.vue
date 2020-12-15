@@ -22,7 +22,7 @@
           Корзина:
           <span class="header-users-count">2</span>
         </nuxt-link>
-        <span></span>
+        <span class="header-users-count">13.2p</span>
       </div>
     </div>
   </div>
