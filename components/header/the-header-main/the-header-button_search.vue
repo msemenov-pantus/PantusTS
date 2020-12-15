@@ -1,6 +1,9 @@
 <template>
   <div class="wrapper-header-button_search">
-    <input class="header-button_search-input" placeholder="Введите номер или название детали" />
+    <input
+      class="header-button_search-input"
+      placeholder="Введите номер или название детали"
+    />
     <button class="header-button_search">Найти</button>
   </div>
 </template>
