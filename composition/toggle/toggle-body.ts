@@ -1,8 +1,8 @@
 import { ref, onUnmounted, onMounted } from "@nuxtjs/composition-api";
 
-export function ToggleBody(Toggle: boolean = false, target: string) {
+export function ToggleBody(Toggle = false, target: string) {
   const ToggleBody = ref(Toggle);
-  const ToggleBodyFunction = (event: { target: any }) => {
+  const ToggleBodyFunction = (event: any) => {
     ToggleBody.value =
       target === event.target.className && ToggleBody.value === false;
   };

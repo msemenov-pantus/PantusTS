@@ -4,13 +4,13 @@
 
 <script lang="ts">
 import { PropType } from "vue";
-import { interfaceLink } from "@/composition/header/array-link.ts";
+import { InterfaceLink } from "@/composition/header/array-link.ts";
 import { defineComponent } from "@nuxtjs/composition-api";
 export default defineComponent({
   name: "header-top-link",
   props: {
     link: {
-      type: Object as () => PropType<interfaceLink>,
+      type: Object as () => PropType<InterfaceLink>,
       request: true,
     },
   },

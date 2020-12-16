@@ -54,6 +54,8 @@ module.exports = {
     "vue/html-end-tags": "warn", // запретить отсутствие закрывающих тегов.
     "vue/html-quotes": ["warn", "double", { avoidEscape: true }], // Требовать кавычки
     "vue/html-self-closing": 0,
+    // "no-prototype-builtins": 0,
+    // "custom/inherited": 0,
     "vue/mustache-interpolation-spacing": ["warn", "always"],
     "vue/no-multi-spaces": ["warn"],
     "vue/no-spaces-around-equal-signs-in-attribute": ["warn"],
