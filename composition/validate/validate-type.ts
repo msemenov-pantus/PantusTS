@@ -13,31 +13,24 @@ export type ValidateParamsAll = {
 export type ErrorObject = {
   text: string;
   active: boolean;
-  type?: 'server';
+  type?: "server";
 };
 export type regulations =
-  | 'RegExp'
-  | 'Undefined'
-  | 'valueTrue'
-  | 'valueFalse'
-  | 'MinLength'
-  | 'MaxLength';
-
-const res: regulations[] = ['RegExp', 'MinLength'];
-
-export type FormDataInput ={
-  regulations: regulations[],
-  regulationsServer?: any,
+  | "RegExp"
+  | "Undefined"
+  | "valueTrue"
+  | "valueFalse"
+  | "MinLength"
+  | "MaxLength";
+export type FormDataInput = {
+  regulations: regulations[];
+  regulationsServer?: any;
   error: {
-    [item:string]:ErrorObject
-  },
-  value: string,
-  params?: ValidateParamsAll,
-}
+    [item: string]: ErrorObject;
+  };
+  value: string;
+  params?: ValidateParamsAll;
+};
 export type FormData = {
-  [item:string]: FormDataInput,
-}
-const a:FormData = {
-  d: {error:{MinLength:{text:"d",active:false }} , regulations:["MinLength"] ,value: "" }
-  }
- 
+  [item: string]: FormDataInput;
+};

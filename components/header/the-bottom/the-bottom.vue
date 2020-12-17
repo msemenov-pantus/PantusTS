@@ -2,9 +2,7 @@
   <div class="wrapper-header-bottom">
     <container>
       <div class="section-header-bottom">
-        <div class="link-header-bottom">
-          Все запчасти
-        </div>
+        <div class="link-header-bottom">Все запчасти</div>
         <header-dropdown
           class="header-dropdown-bottom"
           :array="linksBottomDropdownIndex"
