@@ -1,5 +1,8 @@
-import { ValidateInput } from "@/composition/validate/validate-input.ts";
-export function ValidateForm(FormData: any) {
+import { ValidateInput } from '@/composition/validate/validate-input.ts';
+import {
+  FormData
+} from '@/composition/validate/validate-type.ts';
+export function ValidateForm(FormData: FormData) {
   const AllCheckChient = (): boolean => {
     let fullValidClient = true;
     for (const keyNameInput in FormData) {
@@ -7,7 +10,7 @@ export function ValidateForm(FormData: any) {
       for (const key in FormData[keyNameInput].error) {
         if (
           FormData[keyNameInput].error[key].active === true &&
-          FormData[keyNameInput].error[key].type !== "server"
+          FormData[keyNameInput].error[key].type !== 'server'
         ) {
           fullValidClient = false;
           break;
@@ -18,7 +21,7 @@ export function ValidateForm(FormData: any) {
   };
   const AllCheckServer = (checkClient: boolean): boolean => {
     let checkServer = true;
-    if (checkClient === true) {
+    if (checkClient) {
       for (const keyNameInput in FormData) {
         for (const keyNamePag in FormData[keyNameInput].regulationsServer) {
           if (FormData[keyNameInput].regulationsServer[keyNamePag]() === true) {

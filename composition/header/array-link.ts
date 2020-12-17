@@ -19,3 +19,20 @@ export const linksTopDropdown: InterfaceLink[] = [
   { id: 5, to: "", text: "Документы и реквизиты" },
   { id: 6, to: "", text: "Дилерские сертификаты" },
 ];
+export const linksBottom: InterfaceLink[] = [
+  { id: 1, to: "", text: "Автокаталоги" },
+  { id: 2, to: "", text: "ВАЗ" },
+  { id: 3, to: "", text: "КАМАЗ" },
+  { id: 4, to: "", text: "ГАЗ" },
+  { id: 5, to: "", text: "РТИ" },
+  { id: 6, to: "", text: "Популярное" },
+  { id: 7, to: "", text: "Новинки" },
+];
+export const linksBottomDropdownIndex: InterfaceLink[] = [
+  { id: 1, to: "", text: "Бренды запчастей" },
+  { id: 2, to: "", text: "Марки автомобилей" },
+  { id: 3, to: "", text: "Категории запчастей" },
+  { id: 4, to: "", text: "Масла и автохимия" },
+  { id: 5, to: "", text: "Антифризы, толосы" },
+  { id: 6, to: "", text: "Каталоги оригинальных запчастей" },
+];

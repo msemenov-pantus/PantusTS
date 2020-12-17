@@ -18,11 +18,11 @@
         alt=""
       />
       <div class="header-user-info">
-        <nuxt-link to="/" class="header-user-link">
+        <nuxt-link to="/" class="header-user-link-user">
           Корзина:
           <span class="header-users-count">2</span>
+          <div class="header-users-count">13.2p</div>
         </nuxt-link>
-        <span class="header-users-count">13.2p</span>
       </div>
     </div>
   </div>

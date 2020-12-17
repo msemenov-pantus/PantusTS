@@ -1,6 +1,9 @@
+import {
+  FormDataInput
+} from '@/composition/validate/validate-type.ts';
 export function ValidateInput(FormData: any, NameInput: string) {
   const ErrorUndefined = (name: string) => {
-    FormData[name].error.undefined.active = FormData[name].value === "";
+    FormData[name].error.undefined.active = FormData[name].value === '';
   };
   const ErrorRegExp = (name: string) => {
     FormData[name].error.RegExp.active = !FormData[name].params.RegExp.test(
@@ -28,22 +31,22 @@ export function ValidateInput(FormData: any, NameInput: string) {
   const OnSwitch = () => {
     for (const keyReg in FormData[NameInput].regulations) {
       switch (FormData[NameInput].regulations[keyReg]) {
-        case "Undefined":
+        case 'Undefined':
           ErrorUndefined(NameInput);
           break;
-        case "RegExp":
+        case 'RegExp':
           ErrorRegExp(NameInput);
           break;
-        case "valueTrue":
+        case 'valueTrue':
           ErrorValueTrue(NameInput);
           break;
-        case "valueFalse":
+        case 'valueFalse':
           ErrorValueFalse(NameInput);
           break;
-        case "MinLength":
+        case 'MinLength':
           ErrorMinLength(NameInput);
           break;
-        case "MaxLength":
+        case 'MaxLength':
           ErrorMaxLength(NameInput);
           break;
         default:

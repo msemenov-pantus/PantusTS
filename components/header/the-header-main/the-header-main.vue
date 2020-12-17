@@ -1,11 +1,13 @@
 <template>
-  <container>
-    <div class="wrapper-header-main">
-      <logo />
-      <the-header-button-search />
-      <the-header-users />
-    </div>
-  </container>
+  <div class="wrapper-header-main">
+    <container>
+      <div class="section-header-main">
+        <logo />
+        <the-header-button-search />
+        <the-header-users />
+      </div>
+    </container>
+  </div>
 </template>
 
 <script lang="ts">
@@ -18,5 +20,3 @@ export default {
   components: { TheHeaderUsers, TheHeaderButtonSearch, Logo, Container },
 };
 </script>
-
-<!--<style lang="sass"></style>-->

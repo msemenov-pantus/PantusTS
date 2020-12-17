@@ -4,8 +4,9 @@
       <div class="section-header-top">
         <nav class="header-top-nav">
           <span class="link-header-top">О компании</span>
-          <header-top-dropdown />
+          <header-dropdown :array="linksTopDropdown" target="link-header-top" />
           <header-top-link
+            class="link-header-top"
             v-for="data in linksTop"
             :link="data"
             :key="data.id"
@@ -23,16 +24,17 @@
 </template>
 
 <script lang="ts">
+import { linksTopDropdown } from "@/composition/header/array-link.ts";
 import { defineComponent } from "@nuxtjs/composition-api";
 import { linksTop } from "@/composition/header/array-link.ts";
 import Container from "@/components/base/container.vue";
-import HeaderTopLink from "@/components/header/the-header-top/header-top-link.vue";
-import HeaderTopDropdown from "~/components/header/the-header-top/header-top-dropdown.vue";
+import HeaderTopLink from "~/components/header/header-link.vue";
+import HeaderDropdown from "~/components/header/header-dropdown.vue";
 export default defineComponent({
   name: "the-header-top",
-  components: { HeaderTopDropdown, HeaderTopLink, Container },
+  components: { HeaderDropdown, HeaderTopLink, Container },
   setup() {
-    return { linksTop };
+    return { linksTop, linksTopDropdown };
   },
 });
 </script>
