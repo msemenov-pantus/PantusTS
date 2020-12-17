@@ -51,4 +51,7 @@ export default {
   build: {
     extractCSS: true,
   },
+  env: {
+    api: "https://api.pantus.ru",
+  },
 };
