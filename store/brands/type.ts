@@ -8,3 +8,7 @@ export type TypeBrandVuex = {
   name : string,
   code: string,
 }
+export type StateAll = {
+  brands: TypeBrandVuex[],
+  checkBrands: boolean,
+}

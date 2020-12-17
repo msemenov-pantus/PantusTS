@@ -1,5 +1,5 @@
 import axios from 'axios';
-import  {TypeBrandApi, TypeBrandVuex} from "@/vuex/modules/brands/type"
+import  {TypeBrandApi, TypeBrandVuex} from "~/store/brands/type"
 export  async function BrandAxios() {
   const data:TypeBrandApi[] = await axios.get(`${process.env.api}/product_brands`);
   return BrandsMap(data);
