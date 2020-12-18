@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts">
-import InputValidate from "@/components/base/_input-validate";
+import InputValidate from "@/components/base/_input-validate.vue";
 import { FormAuthorization } from "@/composition/validate-form/form-authorization";
 import { ValidateForm } from "@/composition/_validate/validate-form";
 

@@ -50,8 +50,8 @@ export default {
       type: String,
     },
   },
-  methods: {
-    async emitValueInput(event) {
+  methods: { // Перенести в файл TS
+    async emitValueInput(event:any) {
       await this.$emit("valueInput", event);
       ValidateInput(this.vuexForm, this.vuexInput).OnSwitch();
     },
