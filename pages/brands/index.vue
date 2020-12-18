@@ -1,10 +1,19 @@
-<template><container>1</container></template>
+<template>
+  <container>
+    <section-brand :brand="Brands" />
+  </container>
+</template>
 
 <script lang="ts">
 import Container from "@/components/base/container.vue";
+import { BrandsView } from "@/composition/views/brands.ts";
+import SectionBrand from "~/components/views/section-brand.vue";
 export default {
   name: "index",
-  components: { Container },
+  components: { SectionBrand, Container },
+  setup() {
+    return { ...BrandsView() };
+  },
 };
 </script>
 

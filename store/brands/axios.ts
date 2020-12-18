@@ -1,18 +1,20 @@
-import axios from 'axios';
-import  {TypeBrandApi, TypeBrandVuex} from "~/store/brands/type"
-export  async function BrandAxios() {
-  const data:TypeBrandApi[] = await axios.get(`${process.env.api}/product_brands`);
-  return BrandsMap(data);
-}
+import axios from "axios";
+import { TypeBrandApi, TypeBrandVuex } from "@/store/brands/type";
 
-const BrandsMap = (data:TypeBrandApi[]) => {
+const BrandsMap = (data: TypeBrandApi[]) => {
   const dataset: TypeBrandVuex[] = [];
   for (const key in data) {
     dataset.push({
       id: data[key].id,
       code: data[key].code,
-      name: data[key].name
-    })
+      name: data[key].name,
+    });
   }
   return dataset;
+};
+
+export async function BrandAxios() {
+  const requestBrands = await axios.get(`${process.env.api}/product_brands`);
+  const data: TypeBrandApi[] = requestBrands.data;
+  return BrandsMap(data);
 }
