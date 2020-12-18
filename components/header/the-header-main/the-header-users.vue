@@ -7,7 +7,7 @@
         alt=""
       />
       <div class="header-user-info">
-        <nuxt-link to="/" class="header-user-link">Вход</nuxt-link>
+        <nuxt-link to="/authorization" class="header-user-link">Вход</nuxt-link>
         <nuxt-link to="/" class="header-user-link">Регистрация</nuxt-link>
       </div>
     </div>

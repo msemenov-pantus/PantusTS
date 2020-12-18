@@ -1,5 +1,5 @@
-import { ValidateInput } from "@/composition/validate/validate-input.ts";
-import { FormData } from "@/composition/validate/validate-type.ts";
+import { ValidateInput } from "@/composition/_validate/validate-input.ts";
+import { FormData } from "@/composition/_validate/validate-type.ts";
 export function ValidateForm(FormDataAll: FormData) {
   const AllCheckChient = (): boolean => {
     let fullValidClient = true;
@@ -39,3 +39,4 @@ export function ValidateForm(FormDataAll: FormData) {
   };
   return { AllCheck };
 }
+export const InputTrigger = ValidateInput;
