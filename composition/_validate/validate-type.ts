@@ -4,11 +4,11 @@ export type ValueCheck = {
   valueSet: string;
 };
 export type ValidateParamsAll = {
-  minLength?: number;
-  maxLength?: number;
+  MinLength?: number;
+  MaxLength?: number;
   RegExp?: RegExp;
-  valueTrue: ValueCheck;
-  valueFalse: ValueCheck;
+  ValueTrue: ValueCheck;
+  ValueFalse: ValueCheck;
 };
 export type ErrorObject = {
   text: string;
@@ -18,8 +18,8 @@ export type ErrorObject = {
 export type regulations =
   | "RegExp"
   | "Undefined"
-  | "valueTrue"
-  | "valueFalse"
+  | "ValueTrue"
+  | "ValueFalse"
   | "MinLength"
   | "MaxLength";
 export type FormDataInput = {

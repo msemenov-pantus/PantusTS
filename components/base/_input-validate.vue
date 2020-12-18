@@ -2,14 +2,18 @@
   <div>
     <label :class="classLabel">{{ TextLabel }}</label>
     <input
-      @input="$emit('value_input', $event.target.value)"
-      :value="vuexForm.value"
+      @input="emitValueInput($event.target.value)"
+      :value="vuexForm[vuexInput].value"
       :type="typeInput"
       :placeholder="placeholder"
     />
     <div class="block-error_full">
-      <template v-for="data in vuexForm.error">
-        <div :key="data.id" v-if="data.active === true">
+      <template v-for="data in vuexForm[vuexInput].error">
+        <div
+          class="block-error-text"
+          :key="data.id"
+          v-if="data.active === true"
+        >
           {{ data.text }}
         </div>
       </template>
@@ -20,6 +24,7 @@
 <script lang="ts">
 import { PropType } from "vue";
 import { FormDataInput } from "@/composition/_validate/validate-type";
+import { ValidateInput } from "~/composition/_validate/validate-input";
 export default {
   name: "input-validate",
   props: {
@@ -31,7 +36,12 @@ export default {
       default: "text",
     },
     vuexForm: {
-      type: Object as () => PropType<FormDataInput>,
+      type: Object as () => PropType<FormData>,
+      request: true,
+    },
+    vuexInput: {
+      type: String,
+      request: true,
     },
     classLabel: {
       type: String,
@@ -40,7 +50,16 @@ export default {
       type: String,
     },
   },
+  methods: {
+    async emitValueInput(event) {
+      await this.$emit("valueInput", event);
+      ValidateInput(this.vuexForm, this.vuexInput).OnSwitch();
+    },
+  },
 };
 </script>
 
-<!--<style scoped></style>-->
+<style lang="sass">
+.block-error-text
+  color: red
+</style>

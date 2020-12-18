@@ -1,7 +1,7 @@
 // import { FormDataInput } from "@/composition/validate/validate-type.ts";
 export function ValidateInput(FormData: any, NameInput: string) {
   const ErrorUndefined = (name: string) => {
-    FormData[name].error.undefined.active = FormData[name].value === "";
+    FormData[name].error.Undefined.active = FormData[name].value === "";
   };
   const ErrorRegExp = (name: string) => {
     FormData[name].error.RegExp.active = !FormData[name].params.RegExp.test(
@@ -19,12 +19,12 @@ export function ValidateInput(FormData: any, NameInput: string) {
       FormData[FormData[name].params.valueFalse.value2].value;
   };
   const ErrorMinLength = (name: string) => {
-    FormData[name].error.minLength.active =
-      FormData[name].value.length <= FormData[name].params.minLength;
+    FormData[name].error.MinLength.active =
+      FormData[name].value.length <= FormData[name].params.MinLength;
   };
   const ErrorMaxLength = (name: string) => {
     FormData[name].error.maxLength.active =
-      FormData[name].value.length >= FormData[name].params.maxLength;
+      FormData[name].value.length >= FormData[name].params.MaxLength;
   };
   const OnSwitch = () => {
     for (const keyReg in FormData[NameInput].regulations) {
@@ -35,10 +35,10 @@ export function ValidateInput(FormData: any, NameInput: string) {
         case "RegExp":
           ErrorRegExp(NameInput);
           break;
-        case "valueTrue":
+        case "ValueTrue":
           ErrorValueTrue(NameInput);
           break;
-        case "valueFalse":
+        case "ValueFalse":
           ErrorValueFalse(NameInput);
           break;
         case "MinLength":

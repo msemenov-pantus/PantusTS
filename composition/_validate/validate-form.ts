@@ -39,4 +39,4 @@ export function ValidateForm(FormDataAll: FormData) {
   };
   return { AllCheck };
 }
-export const InputTrigger = ValidateInput;
+
