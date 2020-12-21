@@ -1,14 +1,16 @@
 import axios from "axios";
-import { TypeBrandApi, TypeBrandVuex } from "@/store/brands/type";
+import { TypeBrandApi, TypeBrandVuex } from "~/store/brands/brands-type";
 
 const BrandsMap = (data: TypeBrandApi[]) => {
   const dataset: TypeBrandVuex[] = [];
-  for (const key in data) {
-    dataset.push({
-      id: data[key].id,
-      code: data[key].code,
-      name: data[key].name,
-    });
+  if(data.length !== 0){
+    for (const key in data) {
+      dataset.push({
+        id: data[key].id,
+        code: data[key].code,
+        name: data[key].name,
+      });
+    }
   }
   return dataset;
 };

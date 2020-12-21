@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { PropType } from "vue";
-import { TypeBrandVuex } from "@/store/brands/type";
+import { TypeBrandVuex } from "~/store/brands/brands-type";
 export default {
   name: "section-brand",
   props: {

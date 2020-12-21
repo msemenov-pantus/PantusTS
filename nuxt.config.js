@@ -1,4 +1,8 @@
 export default {
+  router: {
+    prefetchLinks: false,
+    middleware: "users-data",
+  },
   storybook: {
     stories: ["@/components/**/*.stories.js"],
     addons: ["@storybook/addon-controls", "@storybook/addon-docs"],
@@ -18,7 +22,7 @@ export default {
   css: ["@/assets/sass-mixin/reset.sass"],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: [{ src: "./plugins/axios.ts" }],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,

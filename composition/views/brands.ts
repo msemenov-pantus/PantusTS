@@ -10,10 +10,10 @@ export function BrandsView() {
     }
   });
   useFetch(async () => {
-    await store.dispatch("brands/RequestBrands");
+    await store.dispatch("brands/brands-index/RequestBrands");
   });
   const Brands = computed(() => {
-    return store.getters["brands/GetPageBrands"](Page.value);
+    return store.getters["brands/brands-index/GetPageBrands"](Page.value);
   });
   return { Brands };
 }

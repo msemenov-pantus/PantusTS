@@ -1,6 +1,6 @@
-import { StateAll, TypeBrandVuex } from "~/store/brands/type";
+import { StateAll, TypeBrandVuex } from "~/store/brands/brands-type";
 import { MutationTree } from "vuex";
-import { BrandAxios } from "@/store/brands/axios";
+import { BrandAxios } from "~/store/brands/brands-axios";
 
 export const state = (): StateAll => ({
   brands: [],

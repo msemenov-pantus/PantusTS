@@ -11,6 +11,7 @@
         :vuex-input="'login'"
       />
       <input-validate
+        type-input="password"
         class-label="authorization-label"
         class="authorization-input"
         text-label="Пароль"

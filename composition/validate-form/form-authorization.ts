@@ -1,5 +1,9 @@
 import { FormData } from "@/composition/_validate/validate-type.ts";
 import { ref } from "@nuxtjs/composition-api";
+
+const requestAuthorization = () => {
+
+}
 const Form: FormData = {
   login: {
     value: "",
@@ -11,6 +15,7 @@ const Form: FormData = {
   password: {
     value: "",
     regulations: ["Undefined"],
+    regulationsServer:[requestAuthorization],
     error: {
       Undefined: { text: "Вы не указали пароль", active: false },
     },
