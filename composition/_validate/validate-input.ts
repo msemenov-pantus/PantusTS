@@ -1,5 +1,5 @@
 // import { FormDataInput } from "@/composition/validate/validate-type.ts";
-export function ValidateInput(FormData: any, NameInput: string) {
+export function ValidateInput(FormData: any, NameInput: string): any {
   const ErrorUndefined = (name: string) => {
     FormData[name].error.Undefined.active = FormData[name].value === "";
   };
@@ -50,6 +50,9 @@ export function ValidateInput(FormData: any, NameInput: string) {
         default:
           break;
       }
+    }
+    const emitGet = () =>{
+
     }
   };
   return { OnSwitch };

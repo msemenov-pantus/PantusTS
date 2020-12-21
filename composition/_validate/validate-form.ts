@@ -39,4 +39,3 @@ export function ValidateForm(FormDataAll: FormData) {
   };
   return { AllCheck };
 }
-
