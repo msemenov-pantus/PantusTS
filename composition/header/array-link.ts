@@ -30,7 +30,7 @@ export const linksBottom: InterfaceLink[] = [
 ];
 export const linksBottomDropdownIndex: InterfaceLink[] = [
   { id: 1, to: "/brands", text: "Бренды запчастей" },
-  { id: 2, to: "", text: "Марки автомобилей" },
+  { id: 2, to: "/applicabilities", text: "Марки автомобилей" },
   { id: 3, to: "", text: "Категории запчастей" },
   { id: 4, to: "", text: "Масла и автохимия" },
   { id: 5, to: "", text: "Антифризы, толосы" },
