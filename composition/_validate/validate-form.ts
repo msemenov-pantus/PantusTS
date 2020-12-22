@@ -1,14 +1,14 @@
 import { ValidateInput } from "@/composition/_validate/validate-input.ts";
-import { FormData } from "@/composition/_validate/validate-type.ts";
-export function ValidateForm(FormDataAll: FormData) {
+// import { FormData } from "@/composition/_validate/validate-type.ts";
+export function ValidateForm(FormDataAll: any) {
   const AllCheckChient = (): boolean => {
     let fullValidClient = true;
-    for (const keyNameInput in FormDataAll) {
-      ValidateInput(FormDataAll, keyNameInput).OnSwitch();
-      for (const key in FormDataAll[keyNameInput].error) {
+    for (const keyNameInput in FormDataAll.value) {
+      ValidateInput(FormDataAll.value, keyNameInput).OnSwitch();
+      for (const key in FormDataAll.value[keyNameInput].error) {
         if (
-          FormDataAll[keyNameInput].error[key].active === true &&
-          FormDataAll[keyNameInput].error[key].type !== "server"
+          FormDataAll.value[keyNameInput].error[key].active === true &&
+          FormDataAll.value[keyNameInput].error[key].type !== "server"
         ) {
           fullValidClient = false;
           break;
@@ -17,25 +17,30 @@ export function ValidateForm(FormDataAll: FormData) {
     }
     return fullValidClient;
   };
-  const AllCheckServer = (checkClient: boolean): boolean => {
+  const AllCheckServer = async (checkClient: boolean): Promise<boolean> => {
     let checkServer = true;
     if (checkClient) {
-      for (const keyNameInput in FormDataAll) {
-        for (const keyNamePag in FormDataAll[keyNameInput].regulationsServer) {
-          if (FormDataAll[keyNameInput].regulationsServer[keyNamePag]()) {
-            FormDataAll[keyNameInput].error[keyNamePag].active = true;
+      for (const keyNameInput in FormDataAll.value) {
+        for (const keyNamePag in FormDataAll.value[keyNameInput]
+          .regulationsServer) {
+          if (
+            await FormDataAll.value[keyNameInput].regulationsServer[keyNamePag](
+              FormDataAll.value
+            ) === true
+          ) {
+            FormDataAll.value[keyNameInput].error[keyNamePag].active = true;
             checkServer = false;
           } else {
-            FormDataAll[keyNameInput].error[keyNamePag].active = false;
+            FormDataAll.value[keyNameInput].error[keyNamePag].active = false;
           }
         }
       }
       return checkServer;
     } else return false;
   };
-  const AllCheck = (): boolean => {
+  const AllCheck = async (): Promise<boolean> => {
     const checkClient = AllCheckChient();
-    return AllCheckServer(checkClient);
+    return await AllCheckServer(checkClient);
   };
   return { AllCheck };
 }

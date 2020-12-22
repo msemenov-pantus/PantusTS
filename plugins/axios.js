@@ -1,9 +1,9 @@
 export default ({ $axios, app }) => {
-  console.log(app.$cookies);
   $axios.onRequest(config => {
-    config.headers.common[
-      "Authorization"
-    ] = `Bearer nuY0ABQfg3FiSTFM3INIUUkRXUfWNVih`;
+    if (app.$cookies.get("Authorization")) {
+      config.headers.common["Authorization"] = `Bearer ${app.$cookies.get(
+        "Authorization"
+      )}`;
+    }
   });
-  // inject("axiosHeader", $axios);
 };

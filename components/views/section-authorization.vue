@@ -19,10 +19,7 @@
         :vuex-form="FormAuthorization"
         :vuex-input="'password'"
       />
-      <button
-        class="authorization-button"
-        @click.prevent="ValidateForm(FormAuthorization).AllCheck()"
-      >
+      <button class="authorization-button" @click.prevent="AllCheck()">
         Отправить
       </button>
     </form>
@@ -31,14 +28,18 @@
 
 <script lang="ts">
 import InputValidate from "@/components/base/_input-validate.vue";
-import { FormAuthorization } from "@/composition/validate-form/form-authorization";
+import { formAuthorization } from "@/composition/validate-form/form-authorization";
 import { ValidateForm } from "@/composition/_validate/validate-form";
 
 export default {
   name: "section-authorization",
   components: { InputValidate },
   setup() {
-    return { FormAuthorization, ValidateForm };
+    const data = formAuthorization();
+    return {
+      FormAuthorization: data.FormAuthorization,
+      ...ValidateForm(data.FormAuthorization),
+    };
   },
 };
 </script>

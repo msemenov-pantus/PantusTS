@@ -1,6 +1,5 @@
-import { StateAll, TypeUsersVuex } from "~/store/users/users-type";
-import { MutationTree } from "vuex";
-
+import { StateAll, TypeUsersVuex, TypeUserAuthApi } from "~/store/users/users-type";
+import { MutationTree ,ActionTree } from "vuex";
 export const state = (): StateAll => ({
   Users: {},
   checkUser: false,
@@ -26,9 +25,24 @@ export const mutations = {
   },
 };
 
-export const actions: MutationTree<any> = {
-  async RequestUsersProfile({ commit, dispatch }) {
+export const actions: ActionTree<any, any> = {
+  async RequestAuthProfile({ commit, dispatch } ,dataset:any) {
     // Были ли уже загруженна информация про users
+    const data: TypeUserAuthApi = await dispatch(
+      "users/users-axios/UsersAuthAxios" , {dataset},
+      { root: true }
+    );
+    console.log(data);
+    if (data.id !== null) { // Пользователь существует
+      this.app.$cookies.set("Authorization" , data.token);
+      await dispatch("RequestUsersProfile");
+      return false;
+    }else {// Пользователя нету
+      commit("checkUserLoaderTrue");
+      return  true;
+    }
+  },
+  async RequestUsersProfile({ commit, dispatch }) {
     const data: TypeUsersVuex | null = await dispatch(
       "users/users-axios/UsersProfileAxios" , {},
     { root: true }
