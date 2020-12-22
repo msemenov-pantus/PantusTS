@@ -22,7 +22,7 @@ export default {
   css: ["@/assets/sass-mixin/reset.sass"],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [{ src: "./plugins/axios.ts" }],
+  plugins: [{ src: "~/plugins/axios.js" }],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -43,6 +43,8 @@ export default {
     "@nuxtjs/axios",
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
+    // https://www.npmjs.com/package/cookie-universal-nuxt
+    ["cookie-universal-nuxt"],
   ],
   styleResources: {
     sass: ["@/assets/sass-mixin/index.sass"],

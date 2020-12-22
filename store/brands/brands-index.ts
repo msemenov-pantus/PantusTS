@@ -1,6 +1,6 @@
 import { StateAll, TypeBrandVuex } from "~/store/brands/brands-type";
 import { MutationTree } from "vuex";
-import { BrandAxios } from "~/store/brands/brands-axios";
+// import { BrandAxios } from "~/store/brands/brands-axios";
 
 export const state = (): StateAll => ({
   brands: [],
@@ -18,10 +18,14 @@ export const mutations = {
 };
 
 export const actions: MutationTree<any> = {
-  async RequestBrands({ commit, state }) {
+  async RequestBrands({ commit, state, dispatch }) {
     if (!state.checkBrands) {
       // Были ли уже загруженны бренды
-      const data: TypeBrandVuex[] = await BrandAxios();
+      const data: TypeBrandVuex[] = await dispatch(
+        "brands/brands-axios/BrandAxios",
+        {},
+        { root: true }
+      );
       commit("SetBrands", data);
       commit("TrueCheckBrands");
     }

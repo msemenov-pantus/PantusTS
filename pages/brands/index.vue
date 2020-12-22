@@ -1,6 +1,6 @@
 <template>
   <container>
-    <section-brand :brand="Brands" />
+    <section-brand :brand="BrandsVuex" />
   </container>
 </template>
 

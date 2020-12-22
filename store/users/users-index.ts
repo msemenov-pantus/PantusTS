@@ -1,6 +1,5 @@
 import { StateAll, TypeUsersVuex } from "~/store/users/users-type";
 import { MutationTree } from "vuex";
-import { UsersProfileAxios } from "~/store/users/users-axios";
 
 export const state = (): StateAll => ({
   Users: {},
@@ -9,28 +8,35 @@ export const state = (): StateAll => ({
 });
 
 export const mutations = {
-  SetUsers(state: StateAll, data: TypeUsersVuex) { // Данные пользователь
+  SetUsers(state: StateAll, data: TypeUsersVuex) {
+    // Данные пользователь
     state.Users = data;
   },
-  checkUserLoaderTrue(state: StateAll){ // Пользователь был загружен
+  checkUserLoaderTrue(state: StateAll) {
+    // Пользователь был загружен
     state.checkUserLoader = true;
   },
-  checkUserTrue(state: StateAll){ // Это пользователь
+  checkUserTrue(state: StateAll) {
+    // Это пользователь
     state.checkUser = true;
   },
-  checkUserFalse(state: StateAll){ // пользователь вышел
+  checkUserFalse(state: StateAll) {
+    // пользователь вышел
     state.checkUser = false;
-  }
+  },
 };
 
 export const actions: MutationTree<any> = {
-  async RequestUsersProfile({ commit }) {
-      // Были ли уже загруженна информация про users
-      const data: TypeUsersVuex | null = await UsersProfileAxios();
-      if(data !== null){
-        commit("SetUsers", data);
-        commit("checkUserTrue");
-      }
+  async RequestUsersProfile({ commit, dispatch }) {
+    // Были ли уже загруженна информация про users
+    const data: TypeUsersVuex | null = await dispatch(
+      "users/users-axios/UsersProfileAxios" , {},
+    { root: true }
+    );
+    if (data !== null) {
+      commit("SetUsers", data);
+      commit("checkUserTrue");
+    }
     commit("checkUserLoaderTrue");
   },
 };

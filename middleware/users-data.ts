@@ -1,6 +1,10 @@
-// @ts-ignore
-export default async ({store}) => {
-  if(!store.getters["users/users-index/GetCheckUserLoader"]){
-    await store.dispatch("users/users-index/RequestUsersProfile");
+import { Middleware } from '@nuxt/types'
+
+const UserData: Middleware =  async (context) => {
+  if(!context.store.getters["users/users-index/GetCheckUserLoader"]){
+    await context.store.dispatch("users/users-index/RequestUsersProfile");
   }
-};
+}
+
+export default UserData;
+

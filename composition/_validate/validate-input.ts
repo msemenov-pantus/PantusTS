@@ -51,9 +51,7 @@ export function ValidateInput(FormData: any, NameInput: string): any {
           break;
       }
     }
-    const emitGet = () =>{
-
-    }
+    const emitGet = () => {};
   };
   return { OnSwitch };
 }

@@ -9,11 +9,11 @@ export function BrandsView() {
       return query.value.page;
     }
   });
+  const BrandsVuex = computed(() => {
+    return store.getters["brands/brands-index/GetPageBrands"](Page.value);
+  });
   useFetch(async () => {
     await store.dispatch("brands/brands-index/RequestBrands");
   });
-  const Brands = computed(() => {
-    return store.getters["brands/brands-index/GetPageBrands"](Page.value);
-  });
-  return { Brands };
+  return { BrandsVuex };
 }
