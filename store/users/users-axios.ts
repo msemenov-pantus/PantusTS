@@ -1,6 +1,5 @@
 import { TypeUsersVuex, TypeUsersApi,TypeUsersErrorApi } from "~/store/users/users-type";
 import {ActionTree} from "vuex";
-import {RootState} from "@/store";
 import axios from "axios";
 const UsersMap = (data: TypeUsersApi) => {
   const dataset: TypeUsersVuex = {};
@@ -16,7 +15,7 @@ const UsersMap = (data: TypeUsersApi) => {
   }
   else {return null;}
 }
-export const actions: ActionTree<any, RootState> = {
+export const actions: ActionTree<any,any> = {
   async UsersProfileAxios() {
     const requestUsers = await this.$axios.get(`${process.env.api}/personal/profile`);
     const data: TypeUsersApi = requestUsers.data;

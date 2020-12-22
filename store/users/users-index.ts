@@ -32,7 +32,6 @@ export const actions: ActionTree<any, any> = {
       "users/users-axios/UsersAuthAxios" , {dataset},
       { root: true }
     );
-    console.log(data);
     if (data.id !== null) { // Пользователь существует
       this.app.$cookies.set("Authorization" , data.token);
       await dispatch("RequestUsersProfile");
