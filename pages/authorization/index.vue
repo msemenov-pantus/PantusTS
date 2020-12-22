@@ -8,7 +8,7 @@
 import Container from "@/components/base/container";
 import SectionAuthorization from "@/components/views/section-authorization";
 export default {
-  name: "index",
+  name: "page-authorization",
   components: { SectionAuthorization, Container },
 };
 </script>

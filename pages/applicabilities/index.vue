@@ -9,7 +9,7 @@ import Container from "@/components/base/container.vue";
 import { ApplicabilitiesView } from "@/composition/views/applicabilities.ts";
 import SectionApplicabilities from "~/components/views/section-applicabilities.vue";
 export default {
-  name: "index",
+  name: "page-applicabilities",
   components: { SectionApplicabilities, Container },
   setup() {
     return { ...ApplicabilitiesView() };
