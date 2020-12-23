@@ -1,5 +1,4 @@
 import { TypeApplicabilitiesApi, TypeApplicabilitiesVuex } from "~/store/applicabilities/applicabilities-type";
-import {MutationTree} from "vuex";
 const ApplicabilitiesMap = (data: TypeApplicabilitiesApi[]) => {
   const dataset: TypeApplicabilitiesVuex[] = [];
   if (data.length !== 0) {
@@ -13,7 +12,7 @@ const ApplicabilitiesMap = (data: TypeApplicabilitiesApi[]) => {
   }
   return dataset;
 };
-export const actions: MutationTree<any>  = {
+export const actions: any  = {
   async ApplicabilitiesAxios() {
     const requestApplicabilities = await this.$axios.get(
       `${process.env.api}/product_applicabilities?view=tree`

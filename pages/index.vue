@@ -3,9 +3,9 @@
 </template>
 
 <script lang="ts">
-import Container from "@/components/base/container";
+import Container from "@/components/base/container.vue";
 export default {
-  name: "page-search",
+  name: "page-index",
   components: { Container },
 };
 </script>

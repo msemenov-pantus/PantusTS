@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import Container from "@/components/base/container";
-import FilterApplicabilities from "@/components/filter/filter-applicabilities/filter-applicabilities";
+import Container from "@/components/base/container.vue";
+import FilterApplicabilities from "@/components/filter/filter-applicabilities/filter-applicabilities.vue";
 export default {
   name: "page-search",
   components: { FilterApplicabilities, Container },

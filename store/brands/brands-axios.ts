@@ -1,5 +1,5 @@
 import { TypeBrandApi, TypeBrandVuex } from "~/store/brands/brands-type";
-import {MutationTree} from "vuex";
+import {ActionTree} from "vuex";
 const BrandsMap = (data: TypeBrandApi[]) => {
   const dataset: TypeBrandVuex[] = [];
   if (data.length !== 0) {
@@ -13,7 +13,7 @@ const BrandsMap = (data: TypeBrandApi[]) => {
   }
   return dataset;
 };
-export const actions: MutationTree<any>  = {
+export const actions: ActionTree<any,any>  = {
   async BrandAxios() {
     const requestBrands = await this.$axios.get(
       `${process.env.api}/product_brands`
