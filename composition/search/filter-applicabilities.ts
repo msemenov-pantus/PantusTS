@@ -5,11 +5,24 @@ export function FilterApplicabiliries() {
   const Panel = computed(
     () => store.getters["filter/applicabilities/filter-applicabilities-index/GetPanel"]
   );
-  const AddPanel = () =>{
+  const AddCheckPanel = () =>{
     if(Panel.value.length === 0){
       store.commit("filter/applicabilities/filter-applicabilities-index/SetNewPanel");
     }
   }
-  onMounted(AddPanel);
-  return { Panel, };
+  const AddPanel = () =>{
+    store.commit("filter/applicabilities/filter-applicabilities-index/SetNewPanel");
+  }
+  onMounted(AddCheckPanel);
+  return { Panel, AddPanel };
+}
+export function FilterApplicabiliriesPanel() {
+  const { store } = useContext();
+  const PanelAll = computed(
+    () => store.getters["filter/applicabilities/filter-applicabilities-index/GetPanel"]
+  );
+  const DeletePanel = (index:number) =>{
+    store.commit("filter/applicabilities/filter-applicabilities-index/DeleteIndexPanel", index);
+  }
+  return { PanelAll, DeletePanel }
 }

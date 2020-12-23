@@ -7,7 +7,13 @@
       Укажите применяемости
     </h3>
     <div class="filter-applicabilities-wrapper-panel" v-show="toggle">
-      <FilterAppicabilitiesPanel />
+      <FilterAppicabilitiesPanel
+        v-for="(data, index) in Panel"
+        :key="data.id"
+        :panel="data"
+        :index="index"
+      />
+      <button @click.prevent="AddPanel">Добавить применяемость</button>
     </div>
   </form>
 </template>

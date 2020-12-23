@@ -16,7 +16,7 @@ export type TypeApplicabilitiesFilterVuex = {
   id: number;
   name: string;
   code: string;
-  children: TypeApplicabilitiesApi[];
+  children: TypeApplicabilitiesFilterVuex[];
   level: number;
   parentId: number;
   visible: boolean;

@@ -38,7 +38,7 @@ const ApplicabilitiesFilterMap = (
       selectCheck: false,
     });
     if (array.childs.length > 0) {
-      await ApplicabilitiesFilterMap(array.childs, res, topParent);
+      await ApplicabilitiesFilterMap(array.childs, res?.[index].children, topParent);
     }
   });
 };
