@@ -1,10 +1,13 @@
 <template>
-  <li class="filter-appicabilities-li">li</li>
+  <li class="filter-appicabilities-li" v-on="$listeners">{{ element.name }}</li>
 </template>
 
 <script>
 export default {
   name: "filter-filter-appicabilities-li",
+  props: {
+    element: {},
+  },
 };
 </script>
 

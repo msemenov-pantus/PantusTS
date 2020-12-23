@@ -38,7 +38,11 @@ const ApplicabilitiesFilterMap = (
       selectCheck: false,
     });
     if (array.childs.length > 0) {
-      await ApplicabilitiesFilterMap(array.childs, res?.[index].children, topParent);
+      await ApplicabilitiesFilterMap(
+        array.childs,
+        res?.[index].children,
+        topParent
+      );
     }
   });
 };
@@ -54,7 +58,7 @@ export const actions: ActionTree<any, any> = {
     } else if (check === "filter") {
       const dataset: TypeApplicabilitiesFilterVuex[] = [];
       ApplicabilitiesFilterMap(data, dataset);
-      return  dataset;
+      return dataset;
     }
   },
 };

@@ -2,12 +2,15 @@ import { ref, onUnmounted, onMounted } from "@nuxtjs/composition-api";
 
 export function ToggleBodyFalse(Toggle = false) {
   const ToggleBody = ref(Toggle);
-  const  checkFalse = ref(false);
+  const checkFalse = ref(false);
   const ToggleBodyFunctionFalse = async () => {
-    if(!checkFalse.value){
+    if (!checkFalse.value) {
       ToggleBody.value = false;
     }
     checkFalse.value = false;
+  };
+  const ToggleBodyFunctionSelectClick = () => {
+    checkFalse.value = true;
   };
   const ToggleBodyFunctionClick = () => {
     checkFalse.value = true;
@@ -21,5 +24,5 @@ export function ToggleBodyFalse(Toggle = false) {
   };
   onUnmounted(DeleteBody);
   onMounted(SetBody);
-  return { ToggleBody, ToggleBodyFunctionClick };
+  return { ToggleBody, ToggleBodyFunctionClick, ToggleBodyFunctionSelectClick };
 }

@@ -61,6 +61,7 @@ module.exports = {
     "vue/no-spaces-around-equal-signs-in-attribute": ["warn"],
     // "vue/prop-name-casing": ["warn", "snake_case"],
     "vue/require-prop-types": "warn",
+    "@typescript-eslint/no-explicit-any": 0,
     "vue/order-in-components": [
       "warn",
       {

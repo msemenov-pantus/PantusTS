@@ -14,6 +14,7 @@
         :index="index"
       />
       <button @click.prevent="AddPanel">Добавить применяемость</button>
+      <button @click.prevent="ResetPanel">Сбросить</button>
     </div>
   </form>
 </template>
@@ -21,8 +22,9 @@
 <script lang="ts">
 import { ApplicabilitiesFilterForm } from "@/composition/views/search.ts";
 import { FilterApplicabiliries } from "@/composition/search/filter-applicabilities";
+import { FilterApplicabiliriesButtonReset } from "~/composition/search/filter-applicabilities-button-reset";
 import { ToggleClick } from "@/composition/toggle/toggle-click.ts";
-import FilterAppicabilitiesPanel from "~/components/filter/filter-applicabilities/filter-appicabilities-panel.vue";
+import FilterAppicabilitiesPanel from "@/components/filter/filter-applicabilities/filter-appicabilities-panel.vue";
 export default {
   name: "filter-applicabilities",
   components: { FilterAppicabilitiesPanel },
@@ -31,6 +33,7 @@ export default {
       ...ToggleClick(),
       ...ApplicabilitiesFilterForm(),
       ...FilterApplicabiliries(),
+      ...FilterApplicabiliriesButtonReset(),
     };
   },
 };

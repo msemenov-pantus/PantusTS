@@ -1,7 +1,7 @@
 import {
   TypeUsersVuex,
   TypeUsersApi,
-  TypeUsersErrorApi,
+  // TypeUsersErrorApi,
 } from "~/store/users/users-type";
 import { ActionTree } from "vuex";
 import axios from "axios";
