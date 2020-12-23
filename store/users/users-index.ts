@@ -1,5 +1,9 @@
-import { StateAll, TypeUsersVuex, TypeUserAuthApi } from "~/store/users/users-type";
-import { MutationTree ,ActionTree } from "vuex";
+import {
+  StateAll,
+  TypeUsersVuex,
+  TypeUserAuthApi,
+} from "~/store/users/users-type";
+import { MutationTree, ActionTree } from "vuex";
 export const state = (): StateAll => ({
   Users: {},
   checkUser: false,
@@ -26,25 +30,29 @@ export const mutations = {
 };
 
 export const actions: ActionTree<any, any> = {
-  async RequestAuthProfile({ commit, dispatch } ,dataset:any) {
+  async RequestAuthProfile({ commit, dispatch }, dataset: any) {
     // Были ли уже загруженна информация про users
     const data: TypeUserAuthApi = await dispatch(
-      "users/users-axios/UsersAuthAxios" , {dataset},
+      "users/users-axios/UsersAuthAxios",
+      { dataset },
       { root: true }
     );
-    if (data.id !== null) { // Пользователь существует
-      this.app.$cookies.set("Authorization" , data.token);
+    if (data.id !== null) {
+      // Пользователь существует
+      this.app.$cookies.set("Authorization", data.token);
       await dispatch("RequestUsersProfile");
       return false;
-    }else {// Пользователя нету
+    } else {
+      // Пользователя нету
       commit("checkUserLoaderTrue");
-      return  true;
+      return true;
     }
   },
   async RequestUsersProfile({ commit, dispatch }) {
     const data: TypeUsersVuex | null = await dispatch(
-      "users/users-axios/UsersProfileAxios" , {},
-    { root: true }
+      "users/users-axios/UsersProfileAxios",
+      {},
+      { root: true }
     );
     if (data !== null) {
       commit("SetUsers", data);

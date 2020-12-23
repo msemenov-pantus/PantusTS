@@ -1,4 +1,4 @@
-import { ref} from "@nuxtjs/composition-api";
+import { ref } from "@nuxtjs/composition-api";
 
 export function ToggleClick(toggleProps = false) {
   const toggle = ref(toggleProps);

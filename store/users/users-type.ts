@@ -45,7 +45,7 @@ export type StateAll = {
   checkUserLoader: boolean;
   checkUser: boolean;
 };
-export  type TypeUserAuthApi = {
-  id: number,
-  token: string,
-}
+export type TypeUserAuthApi = {
+  id: number;
+  token: string;
+};

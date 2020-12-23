@@ -1,18 +1,31 @@
 <template>
-  <form class="filter-applicabilities-form">
+  <form
+    class="filter-applicabilities-form"
+    :class="{ 'filter-applicabilities-form-get': toggle }"
+  >
     <h3 @click="toggleClick" class="filter-applicabilities-title">
       Укажите применяемости
     </h3>
-    <div v-if="toggle">123</div>
+    <div class="filter-applicabilities-wrapper-panel" v-show="toggle">
+      <FilterAppicabilitiesPanel />
+    </div>
   </form>
 </template>
 
 <script lang="ts">
-import { ToggleClick } from "~/composition/toggle/toggle-click.ts";
+import { ApplicabilitiesFilterForm } from "@/composition/views/search.ts";
+import { FilterApplicabiliries } from "@/composition/search/filter-applicabilities";
+import { ToggleClick } from "@/composition/toggle/toggle-click.ts";
+import FilterAppicabilitiesPanel from "~/components/filter/filter-applicabilities/filter-appicabilities-panel.vue";
 export default {
   name: "filter-applicabilities",
+  components: { FilterAppicabilitiesPanel },
   setup() {
-    return { ...ToggleClick() };
+    return {
+      ...ToggleClick(),
+      ...ApplicabilitiesFilterForm(),
+      ...FilterApplicabiliries(),
+    };
   },
 };
 </script>

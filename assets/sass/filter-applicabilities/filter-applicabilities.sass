@@ -3,8 +3,35 @@
   +py(10px)
   +px(15px)
   +d-display(inline-block)
-
+.filter-applicabilities-form-get
+  +d-display(block)
 .filter-applicabilities-title
+  cursor: pointer
   color: #666
   font-weight: 400
   +fz(12px)
+.filter-applicabilities-wrapper-panel
+  +mt(25px)
+.filter-applicabilities-panel
+  +row-no-gutters()
+.filter-appicabilities-wrapper-input
+  position: relative
+  +size(3)
+  +mr(30px)
+.filter-appicabilities-input
+  border: 1px solid #ced4da
+  +pl(5px)
+  +py(5px)
+
+.filter-appicabilities-ul
+  position: absolute
+  width: 100%
+  overflow-y: auto
+  max-height: 200px
+  overflow-x: hidden
+  border: 1px solid #666
+  z-index: 2
+  background-color: #fff
+.filter-appicabilities-li
+  list-style: none
+  +pl(5px)

@@ -1,10 +1,15 @@
-import { StateAll, TypeApplicabilitiesVuex } from "~/store/applicabilities/applicabilities-type";
+import {
+  StateAll,
+  TypeApplicabilitiesFilterVuex,
+  TypeApplicabilitiesVuex,
+} from "~/store/applicabilities/applicabilities-type";
 import { MutationTree } from "vuex";
-// import { ApplicabilitiesAxios } from "~/store/applicabilities/applicabilities-axios";
 
 export const state = (): StateAll => ({
   applicabilities: [],
+  applicabilitiesFilter: [],
   checkApplicabilities: false,
+  checkApplicabilitesFilter: false,
 });
 
 export const mutations = {
@@ -14,6 +19,12 @@ export const mutations = {
   TrueCheckApplicabilities(state: StateAll) {
     state.checkApplicabilities = true;
   },
+  SetApplicabilitiesFilter(state: StateAll, data: TypeApplicabilitiesVuex[]) {
+    state.applicabilitiesFilter = data;
+  },
+  TrueCheckApplicabilitiesFilter(state: StateAll) {
+    state.checkApplicabilitesFilter = true;
+  },
 };
 
 export const actions: MutationTree<any> = {
@@ -22,15 +33,32 @@ export const actions: MutationTree<any> = {
       // Были ли уже загруженны бренды
       const data: TypeApplicabilitiesVuex[] = await dispatch(
         "applicabilities/applicabilities-axios/ApplicabilitiesAxios",
-        {},
+        "views",
         { root: true }
       );
       commit("SetApplicabilities", data);
       commit("TrueCheckApplicabilities");
     }
   },
+  async RequestApplicabilitiesFilter({ commit, state, dispatch }) {
+    if (!state.checkApplicabilities) {
+      // Были ли уже загруженны бренды
+      const data: TypeApplicabilitiesVuex[] = await dispatch(
+        "applicabilities/applicabilities-axios/ApplicabilitiesAxios",
+        "filter",
+        { root: true }
+      );
+      commit("SetApplicabilitiesFilter", data);
+      commit("TrueCheckApplicabilitiesFilter");
+    }
+  },
 };
 
 export const getters = {
-  GetApplicabilities: (s: { applicabilities: TypeApplicabilitiesVuex[] }) => s.applicabilities,
+  GetApplicabilities: (s: { applicabilities: TypeApplicabilitiesVuex[] }) =>
+    s.applicabilities,
+
+  GetApplicabilitiesFilter: (s: {
+    applicabilitiesFilter: TypeApplicabilitiesFilterVuex[];
+  }) => s.applicabilitiesFilter,
 };

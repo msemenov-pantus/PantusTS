@@ -24,9 +24,9 @@ export function ValidateForm(FormDataAll: any) {
         for (const keyNamePag in FormDataAll.value[keyNameInput]
           .regulationsServer) {
           if (
-            await FormDataAll.value[keyNameInput].regulationsServer[keyNamePag](
-              FormDataAll.value
-            ) === true
+            (await FormDataAll.value[keyNameInput].regulationsServer[
+              keyNamePag
+            ](FormDataAll.value)) === true
           ) {
             FormDataAll.value[keyNameInput].error[keyNamePag].active = true;
             checkServer = false;
