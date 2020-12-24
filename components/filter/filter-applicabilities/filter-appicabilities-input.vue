@@ -1,8 +1,11 @@
 <template>
   <div class="filter-appicabilities-wrapper-input">
+    {{ selected }}
     <div class="filter-appicabilities-input" @click="ToggleBodyFunctionClick">
       <template v-if="dataset.length > 0 && selected.length > 0">
-        <span v-for="item in SelectedNamePanel" :key="item.id">{{ item }}</span>
+        <span v-for="item in SelectedNamePanel" :key="item.id">
+          {{ item }}
+        </span>
       </template>
       <template v-else-if="dataset.length === 0">
         Нету применяемостей
@@ -13,7 +16,8 @@
       v-if="ToggleBody && dataset.length !== 0"
     >
       <filter-filter-appicabilities-li
-        @click="ApplicabilitiesTopUl(level)"
+        @click="ApplicabilitiesTopUl(li.level)"
+        :index-panel="indexPanel"
         v-for="li in dataset"
         :key="li.id"
         :element="li"
@@ -31,7 +35,7 @@ import { TypeApplicabilitiesFilterVuex } from "@/store/applicabilities/applicabi
 import { FilterApplicabiliriesInput } from "~/composition/search/filter-applicabilities/filter-applicabilities-input";
 
 export default {
-  name: "filter-filter-appicabilities-input",
+  name: "filter-appicabilities-input",
   components: { FilterFilterAppicabilitiesLi },
   props: {
     selected: {
@@ -40,21 +44,19 @@ export default {
     dataset: {
       type: Array as () => PropType<TypeApplicabilitiesFilterVuex>,
     },
-    level: {
+    indexPanel: {
       type: Number,
     },
   },
   setup(props: any) {
     const toggleBody = ToggleBodyFalse(false);
-    const filterApplicabiliriesInput = FilterApplicabiliriesInput(
-      props.selected,
-      props.dataset,
-      toggleBody.ToggleBodyFunctionSelectClick
-    );
 
     return {
       ...toggleBody,
-      ...filterApplicabiliriesInput,
+      ...FilterApplicabiliriesInput(
+        props,
+        toggleBody.ToggleBodyFunctionSelectClick
+      ),
     };
   },
 };

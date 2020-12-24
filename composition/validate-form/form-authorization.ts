@@ -12,7 +12,6 @@ export function formAuthorization() {
         password,
       }))
     ) {
-      // console.log(route);
     } else {
       return true;
     }

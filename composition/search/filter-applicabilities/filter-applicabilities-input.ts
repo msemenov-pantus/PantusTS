@@ -1,17 +1,20 @@
-import { computed } from "@nuxtjs/composition-api";
+import { computed, watch, useContext } from "@nuxtjs/composition-api";
 import { TypeApplicabilitiesFilterVuex } from "~/store/applicabilities/applicabilities-type.ts";
 export function FilterApplicabiliriesInput(
-  selected: number[],
-  data: TypeApplicabilitiesFilterVuex[],
-  fun: any
+  props: { selected: number[], dataset: TypeApplicabilitiesFilterVuex[] },
+  fun: any,
 ) {
-  const SelectedNamePanel = computed(() => {
+  const {store} = useContext();
+  const PanelAll = computed( () => {
+    return  store.getters["filter/applicabilities/filter-applicabilities-index/GetPanel"];
+  });
+  const SelectedNamePanel = computed( () => {
     const nameSelected: string[] = [];
-    if (selected.length !== 0) {
-      for (const keyData in data) {
-        for (const keyId in selected) {
-          if (data[keyData].id === selected[keyId]) {
-            nameSelected.push(data[keyData].name);
+    if (props.selected.length !== 0) {
+      for (const keyData in props.dataset) {
+        for (const keyId in props.selected) {
+          if (props.dataset[keyData].id === props.selected[keyId]) {
+            nameSelected.push(props.dataset[keyData].name);
           }
         }
       }

@@ -3,17 +3,17 @@
     <FilterAppicabilitiesInput
       :dataset="ApplicabilitiesVuex"
       :selected="panel.selectedMarka"
-      :level="1"
+      :index-panel="index"
     />
     <FilterAppicabilitiesInput
       :dataset="panel.dataModel"
       :selected="panel.selectedModel"
-      :level="2"
+      :index-panel="index"
     />
     <FilterAppicabilitiesInput
       :dataset="panel.dataGenerations"
       :selected="panel.selectedGenerations"
-      :level="3"
+      :index-panel="index"
     />
     <button @click.prevent="DeletePanel(index)" v-if="PanelAll.length > 1">
       Удалить
