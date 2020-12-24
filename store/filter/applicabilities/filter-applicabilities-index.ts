@@ -1,6 +1,6 @@
 import { StateAll } from "@/store/filter/applicabilities/filter-applicabilities-type.ts";
 import { TypeFilterApplicabilities } from "@/store/filter/applicabilities/filter-applicabilities-type";
-import  Vue from "vue"
+import Vue from "vue";
 
 export const state = (): StateAll => ({
   panel: [],
@@ -15,7 +15,10 @@ export const mutations = {
       dataGenerations: [],
     });
   },
-  SetLinkPanel(store:StateAll, data: { index: number; value: TypeFilterApplicabilities; }){
+  SetLinkPanel(
+    store: StateAll,
+    data: { index: number; value: TypeFilterApplicabilities }
+  ) {
     Vue.set(store.panel, data.index, data.value);
   },
   DeleteIndexPanel(state: StateAll, index: number) {
