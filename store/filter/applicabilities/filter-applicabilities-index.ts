@@ -7,7 +7,7 @@ export const state = (): StateAll => ({
 export const mutations = {
   SetNewPanel(state: StateAll) {
     state.panel.push({
-      selectedMarka: [],
+      selectedMarka: [3138],
       selectedModel: [],
       selectedGenerations: [],
       dataModel: [],

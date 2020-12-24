@@ -1,5 +1,5 @@
 import { computed } from "@nuxtjs/composition-api";
-import { TypeApplicabilitiesFilterVuex } from "@/store/applicabilities/applicabilities-type.ts";
+import { TypeApplicabilitiesFilterVuex } from "~/store/applicabilities/applicabilities-type.ts";
 export function FilterApplicabiliriesInput(
   selected: number[],
   data: TypeApplicabilitiesFilterVuex[],
@@ -22,7 +22,7 @@ export function FilterApplicabiliriesInput(
   });
   const ApplicabilitiesTopUl = (level: number) => {
     if (level !== 1) {
-      fun();
+      fun(); // функция Не скрывать Select
     }
   };
   return { SelectedNamePanel, ApplicabilitiesTopUl };

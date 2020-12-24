@@ -2,7 +2,7 @@
   <div class="filter-appicabilities-wrapper-input">
     <div class="filter-appicabilities-input" @click="ToggleBodyFunctionClick">
       <template v-if="dataset.length > 0 && selected.length > 0">
-        {{ SelectedNamePanel }}
+        <span v-for="item in SelectedNamePanel" :key="item.id">{{ item }}</span>
       </template>
       <template v-else-if="dataset.length === 0">
         Нету применяемостей
@@ -17,6 +17,7 @@
         v-for="li in dataset"
         :key="li.id"
         :element="li"
+        :selected="selected"
       />
     </ul>
   </div>
@@ -27,7 +28,7 @@ import { PropType } from "vue";
 import FilterFilterAppicabilitiesLi from "@/components/filter/filter-applicabilities/filter-appicabilities-li.vue";
 import { ToggleBodyFalse } from "@/composition/toggle/toggle-body-false.ts";
 import { TypeApplicabilitiesFilterVuex } from "@/store/applicabilities/applicabilities-type.ts";
-import { FilterApplicabiliriesInput } from "@/composition/search/filter-applicabilities-input";
+import { FilterApplicabiliriesInput } from "~/composition/search/filter-applicabilities/filter-applicabilities-input";
 
 export default {
   name: "filter-filter-appicabilities-input",

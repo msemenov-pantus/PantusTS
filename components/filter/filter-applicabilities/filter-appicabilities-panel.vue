@@ -25,7 +25,7 @@
 import { PropType } from "vue";
 import { TypeFilterApplicabilities } from "~/store/filter/applicabilities/filter-applicabilities-type.ts";
 import FilterAppicabilitiesInput from "@/components/filter/filter-applicabilities/filter-appicabilities-input.vue";
-import { FilterApplicabiliriesPanel } from "@/composition/search/filter-applicabilities.ts";
+import { FilterApplicabiliriesPanel } from "~/composition/search/filter-applicabilities/filter-applicabilities.ts";
 export default {
   name: "filter-appicabilities-panel",
   components: { FilterAppicabilitiesInput },

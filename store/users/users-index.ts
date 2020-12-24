@@ -3,7 +3,7 @@ import {
   TypeUsersVuex,
   TypeUserAuthApi,
 } from "~/store/users/users-type";
-import {ActionTree} from  "vuex"
+import { ActionTree } from "vuex";
 export const state = (): StateAll => ({
   Users: {},
   checkUser: false,
