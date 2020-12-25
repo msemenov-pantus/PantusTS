@@ -21,8 +21,6 @@ export function FilterApplicabiliriesInput(
         }
       }
       return nameSelected;
-    } else {
-      return [];
     }
   });
   const ApplicabilitiesTopUl = (level: number) => {

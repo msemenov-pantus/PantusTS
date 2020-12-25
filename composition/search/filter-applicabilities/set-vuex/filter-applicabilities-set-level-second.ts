@@ -8,27 +8,28 @@ export const FilterApplicabilitiesSetAllSecond = (
   value: boolean,
   store: any
 ) => {
-  const panel =
+  const panel:TypeFilterApplicabilities =
     store.getters[
       "filter/applicabilities/filter-applicabilities-index/GetPanel"
     ][index];
-  let data: TypeFilterApplicabilities = {};
+  let newFilter: TypeFilterApplicabilities = {dataModel:[], selectedModel:[],selectedGenerations:[],dataGenerations:[],selectedMarka:[]};
   if (value) {
     // Добавлен фильтр
-    data = {
+    newFilter = {
       selectedMarka: panel.selectedMarka,
       selectedModel: [element.id, ...panel.selectedModel],
       dataModel: panel.dataModel,
       selectedGenerations: panel.selectedGenerations,
       dataGenerations: [...element.children, ...panel.dataGenerations],
     };
-  } else if (!value) {
-    // Добавлен фильтр;
+  }
+  else if (!value) {
+    // удален фильтр;
     const indexSelectedModel = panel.selectedModel.indexOf(element.id);
-    data = {
+    newFilter = {
       selectedMarka: panel.selectedMarka,
       dataGenerations: [],
-      dataModel: panel.dataModel,
+      dataModel: [ ... panel.dataModel],
       selectedGenerations: [],
       selectedModel: [
         ...panel.selectedModel.slice(0, indexSelectedModel),
@@ -38,17 +39,30 @@ export const FilterApplicabilitiesSetAllSecond = (
         ),
       ],
     };
-    // element.children.forEach((elem)=>{
-    //   panel.dataModel.forEach((data) =>{
-    //
-    //   })
-    // })
+    if(newFilter.selectedModel.length === 0 ){ // Выбранных фильтров нету
+      newFilter.dataGenerations = [];
+      newFilter.selectedGenerations = [];
+    }
+    else { // Выбранные фильтры есть
+      //   panel.dataGenerations.forEach((dataset) =>{
+      //     element.children.forEach((elem)=>{
+      //     if(dataset.id !== elem.id){ //
+      //       newFilter.dataGenerations.push(elem);
+      //     }else { //
+      //       return;
+      //     }
+      //     console.log(newFilter);
+      //     console.log("data", dataset.id);
+      //     console.log("elem", elem.id);
+      //   })
+      // })
+    }
   }
   store.commit(
     "filter/applicabilities/filter-applicabilities-index/SetLinkPanel",
     {
       index,
-      value: data,
+      value: newFilter,
     }
   );
 };
