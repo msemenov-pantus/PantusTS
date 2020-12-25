@@ -3,7 +3,7 @@ import { ref, onUnmounted, onMounted } from "@nuxtjs/composition-api";
 export function ToggleBodyFalse(Toggle = false) {
   const ToggleBody = ref(Toggle);
   const checkFalse = ref(false);
-  const ToggleBodyFunctionFalse = async () => {
+  const ToggleBodyFunctionFalse = () => {
     if (!checkFalse.value) {
       ToggleBody.value = false;
     }

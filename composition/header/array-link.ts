@@ -25,7 +25,7 @@ export const linksBottom: InterfaceLink[] = [
   { id: 3, to: "", text: "КАМАЗ" },
   { id: 4, to: "", text: "ГАЗ" },
   { id: 5, to: "", text: "РТИ" },
-  { id: 6, to: "", text: "Популярное" },
+  { id: 6, to: "/popular", text: "Популярное" },
   { id: 7, to: "", text: "Новинки" },
 ];
 export const linksBottomDropdownIndex: InterfaceLink[] = [

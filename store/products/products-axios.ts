@@ -1,6 +1,7 @@
 import { typeProductVuex, typeProductApi} from "~/store/products/products-type";
 import { ActionTree } from "vuex";
-const ProductMap = (data: typeProductApi[]):typeProductVuex[] => {
+
+const ProductsMap = (data: typeProductApi[]):typeProductVuex[] => {
   const dataset:any[] = [];
       if (data.length !== 0) {
       data.forEach(elem => {
@@ -22,7 +23,7 @@ const ProductMap = (data: typeProductApi[]):typeProductVuex[] => {
               url: elem.images.main, // Изображение
             },
             album: [],
-            ProductCardOem: elem.oems, // OEM
+            oem: elem.oems, // OEM
             brand: {
               // brand
               id: elem.brand.id,
@@ -67,21 +68,24 @@ const ProductMap = (data: typeProductApi[]):typeProductVuex[] => {
             supplier: {
               name: data.supplier.name,
               deliveryDelay: data.supplier.deliveryDelay,
-              deliveryDelayView: data.supplier.deliveryDelayView,
             },
             multiplicity: data.supplier.orderMultiplicity,
           });
         });
       });
-      return dataset;
     }
+  return dataset;
 };
+
+
 export const actions: ActionTree<any, any> = {
-  async BrandAxios() {
+  async ProductsAxios({}, filter:any) {
     const requestProducts = await this.$axios.get(
-      `${process.env.api}/products_filter`
+      `${process.env.api}/products_filter`,{
+        ... filter
+      }
     );
-    const data: typeProductApi[] = requestProducts.data;
-    return ProductMap(data);
+    const data: typeProductApi[] = requestProducts.data.data;
+    return ProductsMap(data);
   },
 };

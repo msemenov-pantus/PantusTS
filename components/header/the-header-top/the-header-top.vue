@@ -3,8 +3,11 @@
     <container>
       <div class="section-header-top">
         <nav class="header-top-nav">
-          <span class="link-header-top">О компании</span>
-          <header-dropdown :array="linksTopDropdown" target="link-header-top" />
+          <span class="link-header-top dropdown-click">О компании</span>
+          <header-dropdown
+            :array="linksTopDropdown"
+            target="link-header-top dropdown-click"
+          />
           <header-top-link
             class="link-header-top"
             v-for="data in linksTop"

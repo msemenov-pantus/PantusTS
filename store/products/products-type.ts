@@ -46,7 +46,7 @@ export type typeCartProduct  ={
     url: string;
   };
   params: typeParamsProduct;
-  productCardOem: string[];
+  oem: string[];
   album: string[];
   applicability: typeCatalogProduct[];
   categories: typeCatalogProduct[];
@@ -94,7 +94,28 @@ export type typeProductApi = {
       weight: string,
     }
     oems: number[],
-    offers:[
-      // [item]{}
-      ]
+    offers: offerApi[],
+}
+export type offerApi = {
+  id:number,
+  name: string,
+  quantity: number,
+  supplier:{
+    code: number,
+    name: string,
+    storehouse: string,
+    deliveryDelay: string,
+    orderMultiplicity: number,
+  }
+  price: number,
+}
+
+export type  StateAll = {
+  products: typeProductVuex[],
+  productId: typeProductVuex[],
+  productPopular: typeProductVuex[],
+  countProduct: number,
+  limitFilter: number,
+  limitPopular: number,
+  checkProductPopular: boolean,
 }

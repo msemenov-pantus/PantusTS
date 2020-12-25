@@ -1,43 +1,40 @@
-import { StateAll, TypeBrandVuex } from "~/store/brands/brands-type";
+import { StateAll,typeProductVuex, typeProductApi } from "@/store/products/products-type";
 import { MutationTree } from "vuex";
-// import { BrandAxios } from "~/store/brands/brands-axios";
 
 export const state = (): StateAll => ({
-  brands: [],
-  checkBrands: false,
-  limit: 100,
+  productPopular: [],
+  products: [],
+  productId: [],
+  countProduct: 0,
+  limitFilter: 10,
+  limitPopular:30,
+  checkProductPopular: false,
 });
 
 export const mutations = {
-  SetBrands(state: StateAll, data: TypeBrandVuex[]) {
-    state.brands = data;
+  SetProductPopular(state: StateAll, data: typeProductVuex[]) {
+    state.productPopular = data;
   },
-  TrueCheckBrands(state: StateAll) {
-    state.checkBrands = true;
-  },
+  SetCheckProductPopular(state: StateAll){
+    state.checkProductPopular = true;
+  }
 };
 
 export const actions: MutationTree<any> = {
-  async RequestBrands({ commit, state, dispatch }) {
-    if (!state.checkBrands) {
-      // Были ли уже загруженны бренды
-      const data: TypeBrandVuex[] = await dispatch(
-        "brands/brands-axios/BrandAxios",
-        {},
+  async RequestProductPopular({ commit, state, dispatch }) {
+    if (!state.checkProductPopular) {
+      const data: typeProductApi[] = await dispatch(
+        "products/products-axios/ProductsAxios",
+        {
+          page_size: state.limitPopular,
+        },
         { root: true }
       );
-      commit("SetBrands", data);
-      commit("TrueCheckBrands");
+      commit("SetProductPopular", data);
     }
   },
 };
 
 export const getters = {
-  GetBrands: (s: { brands: TypeBrandVuex[] }) => s.brands,
-  GetPageBrands: (s: { brands: TypeBrandVuex[]; limit: number }) => (
-    id: number
-  ) => s.brands.slice((id - 1) * s.limit, s.limit * id),
-  GetPageBrandsLength: (s: { brands: TypeBrandVuex[]; limit: number }) => {
-    return Math.ceil(s.brands.length / s.limit);
-  },
+  GetProductPopular: (s: { productPopular: typeProductVuex[] }) => s.productPopular,
 };

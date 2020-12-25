@@ -2,11 +2,11 @@
   <div class="wrapper-header-bottom">
     <container>
       <div class="section-header-bottom">
-        <div class="link-header-bottom">Все запчасти</div>
+        <div class="link-header-bottom dropdown-click">Все запчасти</div>
         <header-dropdown
           class="header-dropdown-bottom"
           :array="linksBottomDropdownIndex"
-          target="link-header-bottom"
+          target="link-header-bottom dropdown-click"
         />
         <header-link
           class="link-header-bottom"
