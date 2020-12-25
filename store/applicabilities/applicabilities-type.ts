@@ -25,7 +25,7 @@ export type TypeApplicabilitiesFilterVuex = {
 
 export type StateAll = {
   applicabilities: TypeApplicabilitiesVuex[];
-  applicabilitiesFilter: TypeApplicabilitiesVuex[];
+  applicabilitiesFilter: TypeApplicabilitiesFilterVuex[];
   checkApplicabilities: boolean;
   checkApplicabilitesFilter: boolean;
 };

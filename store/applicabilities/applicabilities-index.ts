@@ -19,8 +19,11 @@ export const mutations = {
   TrueCheckApplicabilities(state: StateAll) {
     state.checkApplicabilities = true;
   },
-  SetApplicabilitiesFilter(state: StateAll, data: TypeApplicabilitiesVuex[]) {
+  SetApplicabilitiesFilter(state: StateAll, data: TypeApplicabilitiesFilterVuex[]) {
     state.applicabilitiesFilter = data;
+  },
+  SetApplicabilitiesFilterTopSelect(state:StateAll, index:number){
+    state.applicabilitiesFilter[index].selectCheck = !state.applicabilitiesFilter[index].selectCheck;
   },
   TrueCheckApplicabilitiesFilter(state: StateAll) {
     state.checkApplicabilitesFilter = true;

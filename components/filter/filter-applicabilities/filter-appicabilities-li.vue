@@ -1,5 +1,6 @@
 <template>
   <li
+    v-if="!element.selectCheck"
     :class="{ 'filter-appicabilities-li-active': selectedLi }"
     class="filter-appicabilities-li"
     v-on="$listeners"

@@ -44,18 +44,17 @@ export const FilterApplicabilitiesSetAllSecond = (
       newFilter.selectedGenerations = [];
     }
     else { // Выбранные фильтры есть
-      //   panel.dataGenerations.forEach((dataset) =>{
-      //     element.children.forEach((elem)=>{
-      //     if(dataset.id !== elem.id){ //
-      //       newFilter.dataGenerations.push(elem);
-      //     }else { //
-      //       return;
-      //     }
-      //     console.log(newFilter);
-      //     console.log("data", dataset.id);
-      //     console.log("elem", elem.id);
-      //   })
-      // })
+        panel.dataGenerations.forEach((dataset) =>{
+          const checkData = element.children.filter((elem) => elem.id === dataset.id);
+          // console.log(checkData);
+          if(checkData.length === 0){ // Оставить dataGenerations
+            newFilter.dataGenerations.push(dataset);
+            const checkSelected = panel.selectedGenerations.filter((selected) =>  selected === dataset.id);
+            if(checkSelected.length !== 0){ // Оставить selectedGenerations
+              newFilter.selectedGenerations.push(...checkSelected);
+            }
+          }
+      })
     }
   }
   store.commit(

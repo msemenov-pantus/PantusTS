@@ -7,7 +7,8 @@ export const FilterApplicabilitiesSetAllFirst = (
   value: boolean,
   store: any
 ) => {
-  // const  panel = store.getters["filter/applicabilities/filter-applicabilities-index/GetPanel"][index];
+  const  IndexApplicabilities = store.getters["applicabilities/applicabilities-index/GetApplicabilitiesFilter"].findIndex((elem:any) => elem.id ===  element.id);
+  store.commit("applicabilities/applicabilities-index/SetApplicabilitiesFilterTopSelect", IndexApplicabilities);
   const data: TypeFilterApplicabilities = {
     selectedMarka: [element.id],
     dataGenerations: [],
