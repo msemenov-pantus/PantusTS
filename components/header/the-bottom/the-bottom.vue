@@ -24,7 +24,7 @@ import { defineComponent } from "@nuxtjs/composition-api";
 import HeaderLink from "@/components/header/header-link.vue";
 import { linksBottom } from "@/composition/header/array-link.ts";
 import Container from "@/components/base/container.vue";
-// import FontAwesome from "~/components/base/font-awesome.vue";
+// import font-awesome from "~/components/base/font-awesome.vue";
 import HeaderDropdown from "~/components/header/header-dropdown.vue";
 import { linksBottomDropdownIndex } from "@/composition/header/array-link.ts";
 export default defineComponent({
