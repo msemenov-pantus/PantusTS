@@ -101,13 +101,13 @@ export const mutations = {
 
 
 export const getters = {
-  GetFormFilterProduct: (s: { formFilterProduct:TypeFilterProduct[] }) => s.formFilterProduct,
-  GetMaxValue: (s: { maxValue: number }) => s.maxValue,
-  GetMinValue: (s: { minValue: number }) => s.minValue,
-  GetSortName: (s: { sortName: string }) => s.sortName,
-  GetSortType: (s: { sortType: string }) => s.sortType,
-  GetSearch: (s: { search: string }) => s.search,
-  GetApplicabilitiesChecked: (s: { applicabilitiesChecked: number[] }) => s.applicabilitiesChecked,
-  GetBrandChecked: (s: { brandChecked: number[] }) => s.brandChecked,
-  GetCategoriesChecked: (s: { categoriesChecked: number[] }) => s.categoriesChecked,
+  GetFormFilterProduct: (s: { formFilterProduct:TypeFilterProduct }) => s.formFilterProduct,
+  GetMaxValue: (s: { formFilterProduct:TypeFilterProduct }) => s.formFilterProduct.maxValue,
+  GetMinValue: (s: { formFilterProduct:TypeFilterProduct }) => s.formFilterProduct.minValue,
+  GetSortName: (s: { formFilterProduct: TypeFilterProduct }) => s.formFilterProduct.sortName,
+  GetSortType: (s: { formFilterProduct: TypeFilterProduct }) => s.formFilterProduct.sortType,
+  GetSearch: (s: { formFilterProduct: TypeFilterProduct }) => s.formFilterProduct.search,
+  GetApplicabilitiesChecked: (s: { formFilterProduct: TypeFilterProduct }) => s.formFilterProduct.applicabilitiesChecked,
+  GetBrandChecked: (s: { formFilterProduct: TypeFilterProduct }) => s.formFilterProduct.brandChecked,
+  GetCategoriesChecked: (s: { formFilterProduct: TypeFilterProduct }) => s.formFilterProduct.categoriesChecked,
 };
