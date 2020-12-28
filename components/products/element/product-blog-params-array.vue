@@ -11,11 +11,11 @@
       </nuxt-link>
     </div>
     <nuxt-link
-      v-for="elem in value.slice(1, value.length)"
+      v-for="elem in value.slice(1, 5)"
       :key="elem.id"
       :title="elem"
-      to="/"
-      class="text-nowrap-custom product-blog-params-value"
+      :to="'search?filter_substr=' + elem"
+      class="text-nowrap-custom product-blog-params-value product-blog-params-array-value"
     >
       {{ elem }}
     </nuxt-link>

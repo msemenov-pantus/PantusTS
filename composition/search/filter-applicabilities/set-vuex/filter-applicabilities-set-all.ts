@@ -1,7 +1,7 @@
 import { TypeApplicabilitiesFilterVuex } from "~/store/applicabilities/applicabilities-type";
 import { FilterApplicabilitiesSetAllFirst } from "~/composition/search/filter-applicabilities/set-vuex/filter-applicabilities-set-level-first";
 import { FilterApplicabilitiesSetAllSecond } from "~/composition/search/filter-applicabilities/set-vuex/filter-applicabilities-set-level-second";
-import  {FilterApplicabilitiesSetAllThree} from  "@/composition/search/filter-applicabilities/set-vuex/filter-applicabilities-set-level-three"
+import { FilterApplicabilitiesSetAllThree } from "@/composition/search/filter-applicabilities/set-vuex/filter-applicabilities-set-level-three";
 export const FilterApplicabilitiesSetAll = (
   index: number,
   element: TypeApplicabilitiesFilterVuex,

@@ -6,15 +6,10 @@ export function formAuthorization() {
   async function requestAuthorization(Form: any) {
     const login = Form.login.value;
     const password = Form.password.value;
-    if (
-      !(await store.dispatch("users/users-index/RequestAuthProfile", {
-        login,
-        password,
-      }))
-    ) {
-    } else {
-      return true;
-    }
+    return await store.dispatch("users/users-index/RequestAuthProfile", {
+      login,
+      password,
+    });
   }
   const Form: FormData = {
     login: {

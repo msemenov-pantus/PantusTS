@@ -1,4 +1,8 @@
-import { StateAll,typeProductVuex, typeProductApi } from "@/store/products/products-type";
+import {
+  StateAll,
+  TypeProductVuex,
+  TypeProductApi,
+} from "@/store/products/products-type";
 import { MutationTree } from "vuex";
 
 export const state = (): StateAll => ({
@@ -7,25 +11,26 @@ export const state = (): StateAll => ({
   productId: [],
   countProduct: 0,
   limitFilter: 10,
-  limitPopular:30,
+  limitPopular: 30,
   checkProductPopular: false,
 });
 
 export const mutations = {
-  SetProductPopular(state: StateAll, data: typeProductVuex[]) {
+  SetProductPopular(state: StateAll, data: TypeProductVuex[]) {
     state.productPopular = data;
   },
-  SetCheckProductPopular(state: StateAll){
+  SetCheckProductPopular(state: StateAll) {
     state.checkProductPopular = true;
-  }
+  },
 };
 
 export const actions: MutationTree<any> = {
   async RequestProductPopular({ commit, state, dispatch }) {
     if (!state.checkProductPopular) {
-      const data: typeProductApi[] = await dispatch(
+      const data: TypeProductApi[] = await dispatch(
         "products/products-axios/ProductsAxios",
         {
+          /* @typescript-eslint/camelcase */
           page_size: state.limitPopular,
         },
         { root: true }
@@ -36,5 +41,6 @@ export const actions: MutationTree<any> = {
 };
 
 export const getters = {
-  GetProductPopular: (s: { productPopular: typeProductVuex[] }) => s.productPopular,
+  GetProductPopular: (s: { productPopular: TypeProductVuex[] }) =>
+    s.productPopular,
 };

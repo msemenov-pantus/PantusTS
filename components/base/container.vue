@@ -13,6 +13,6 @@ export default {
   max-width: $container-width
   margin-left: auto
   margin-right: auto
-  padding-left: $offset-grid
-  padding-right: $offset-grid
+  padding-left: $container-offset
+  padding-right: $container-offset
 </style>

@@ -7,19 +7,29 @@ export const FilterApplicabilitiesSetAllThree = (
   value: boolean,
   store: any
 ) => {
-  const  panel = store.getters["filter/applicabilities/filter-applicabilities-index/GetPanel"][index];
-  let  newFilter:TypeFilterApplicabilities = {selectedMarka:[], dataGenerations:[],selectedGenerations:[], selectedModel:[], dataModel:[]};
-  if (value){
+  const panel =
+    store.getters[
+      "filter/applicabilities/filter-applicabilities-index/GetPanel"
+    ][index];
+  let newFilter: TypeFilterApplicabilities = {
+    selectedMarka: [],
+    dataGenerations: [],
+    selectedGenerations: [],
+    selectedModel: [],
+    dataModel: [],
+  };
+  if (value) {
     newFilter = {
       selectedMarka: panel.selectedMarka,
       dataGenerations: panel.dataGenerations,
       dataModel: panel.dataModel,
-      selectedGenerations: [ ... panel.selectedGenerations, element.id],
+      selectedGenerations: [...panel.selectedGenerations, element.id],
       selectedModel: panel.selectedModel,
     };
-  }else {
-    console.log("value false");
-    const indexSelectedGenerations = panel.selectedGenerations.indexOf(element.id);
+  } else {
+    const indexSelectedGenerations = panel.selectedGenerations.indexOf(
+      element.id
+    );
     newFilter = {
       selectedMarka: panel.selectedMarka,
       dataGenerations: panel.dataGenerations,

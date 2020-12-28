@@ -10,13 +10,13 @@
 import Container from "~/components/base/container.vue";
 import ProductViewBlog from "~/components/products/view/product-view-blog.vue";
 import { PropType } from "vue";
-import { typeCartProduct } from "~/store/products/products-type";
+import { TypeCartProduct } from "~/store/products/products-type";
 export default {
   name: "section-popular",
   components: { ProductViewBlog, Container },
   props: {
     product: {
-      type: Array as () => PropType<typeCartProduct>,
+      type: Array as () => PropType<TypeCartProduct>,
     },
   },
 };

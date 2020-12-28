@@ -47,8 +47,8 @@ const ApplicabilitiesFilterMap = (
   });
 };
 
-export const actions: ActionTree<any, any> = {
-  async ApplicabilitiesAxios({}, check: "filter" | "views") {
+export const actions: ActionTree<undefined, any> = {
+  async ApplicabilitiesAxios(undefined, check: "filter" | "views") {
     const requestApplicabilities = await this.$axios.get(
       `${process.env.api}/product_applicabilities?view=tree`
     );

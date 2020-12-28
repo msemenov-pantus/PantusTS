@@ -1,6 +1,5 @@
 <template>
   <div class="filter-appicabilities-wrapper-input">
-    {{ selected }}
     <div class="filter-appicabilities-input" @click="ToggleBodyFunctionClick">
       <template v-if="dataset.length > 0 && selected.length > 0">
         <span v-for="item in SelectedNamePanel" :key="item.id">

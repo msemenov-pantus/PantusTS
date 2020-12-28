@@ -1,121 +1,120 @@
 /***
  *  @type catalogProduct - Каталог для продукта
  */
-export type typeCatalogProduct = {
+export type TypeCatalogProduct = {
   id: number;
   name: string;
-}
+};
 /***
  *  @type paramsProduct - параметры для продукта
  */
-export type typeParamsProduct ={
+export type TypeParamsProduct = {
   measure: string;
-}
+};
 /***
  *  @type brandProduct - Бренд для продукта
  */
-export type typeBrandProduct = {
+export type TypeBrandProduct = {
   id: number;
   name: string;
-  deliveryDelay: string;
-}
+  deliveryDelay: number;
+};
 /***
  *  @type skuProduct - артикуль для продукта
  */
-export type typeSkuProduct = {
+export type TypeSkuProduct = {
   normalized: string;
   original: string;
-}
+};
 /***
- *  @type typeSupplier - поставщик продуктов
+ *  @type TypeSupplier - поставщик продуктов
  */
-export type typeSupplier ={
+export type TypeSupplier = {
   deliveryDelay: number;
-  deliveryDelayView: string;
   name: string;
-}
+};
 /***
  *  @type cartProduct - карточка для продукта
  */
 
-export type typeCartProduct  ={
+export type TypeCartProduct = {
   id: number;
   name: string;
-  sku: typeSkuProduct;
+  sku: TypeSkuProduct;
   productCardImage: {
     url: string;
   };
-  params: typeParamsProduct;
+  params: TypeParamsProduct;
   oem: string[];
   album: string[];
-  applicability: typeCatalogProduct[];
-  categories: typeCatalogProduct[];
-  brand: typeBrandProduct;
-}
+  applicability: TypeCatalogProduct[];
+  categories: TypeCatalogProduct[];
+  brand: TypeBrandProduct;
+};
 /***
  *  @type offerProduct - предложения для продукта
  */
-export type typeOfferProduct = {
+export type TypeOfferProduct = {
   id: number;
   multiplicity: number;
   prices: number;
   quantity: number;
-  supplier: typeSupplier;
-}
+  supplier: TypeSupplier;
+};
 /***
  *  @type product - единица продукта
  */
-export type typeProductVuex ={
-  productCard: typeCartProduct;
-  productOffer: typeOfferProduct[];
-}
+export type TypeProductVuex = {
+  productCard: TypeCartProduct;
+  productOffer: TypeOfferProduct[];
+};
 
-export type typeProductApi = {
-    id: number,
-    name: string,
-    images:{
-      main: string,
-      extra: string[],
-    },
-    sku:{
-      origin: string,
-      custom: string,
-    },
-    brand:{
-      id: number,
-      name: string,
-      code: string,
-      deliveryDelay: string,
-    },
-    categories:typeCatalogProduct[],
-    applicabilities: typeCatalogProduct[],
-    params:{
-      measure: string,
-      weight: string,
-    }
-    oems: number[],
-    offers: offerApi[],
-}
+export type TypeProductApi = {
+  id: number;
+  name: string;
+  images: {
+    main: string;
+    extra: string[];
+  };
+  sku: {
+    origin: string;
+    custom: string;
+  };
+  brand: {
+    id: number;
+    name: string;
+    code: string;
+    deliveryDelay: string;
+  };
+  categories: TypeCatalogProduct[];
+  applicabilities: TypeCatalogProduct[];
+  params: {
+    measure: string;
+    weight: string;
+  };
+  oems: number[];
+  offers: offerApi[];
+};
 export type offerApi = {
-  id:number,
-  name: string,
-  quantity: number,
-  supplier:{
-    code: number,
-    name: string,
-    storehouse: string,
-    deliveryDelay: string,
-    orderMultiplicity: number,
-  }
-  price: number,
-}
+  id: number;
+  name: string;
+  quantity: number;
+  supplier: {
+    code: number;
+    name: string;
+    storehouse: string;
+    deliveryDelay: string;
+    orderMultiplicity: number;
+  };
+  price: number;
+};
 
-export type  StateAll = {
-  products: typeProductVuex[],
-  productId: typeProductVuex[],
-  productPopular: typeProductVuex[],
-  countProduct: number,
-  limitFilter: number,
-  limitPopular: number,
-  checkProductPopular: boolean,
-}
+export type StateAll = {
+  products: TypeProductVuex[];
+  productId: TypeProductVuex[];
+  productPopular: TypeProductVuex[];
+  countProduct: number;
+  limitFilter: number;
+  limitPopular: number;
+  checkProductPopular: boolean;
+};
