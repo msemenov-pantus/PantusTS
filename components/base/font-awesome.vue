@@ -1,5 +1,5 @@
 <template>
-  <div class="fontawesome">{{ unicode }}</div>
+  <div class="fontawesome" v-html="unicode" />
 </template>
 
 <script>

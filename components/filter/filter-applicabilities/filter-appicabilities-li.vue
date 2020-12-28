@@ -1,12 +1,14 @@
 <template>
   <li
     v-if="!element.selectCheck"
-    :class="{ 'filter-appicabilities-li-active': selectedLi }"
     class="filter-appicabilities-li"
     v-on="$listeners"
     @click="toggleLi(indexPanel)"
   >
-    <font-awesome unicode="&#xf0c9;" />
+    <template v-if="element.level !== 1">
+      <font-awesome unicode="&#xf14a;" v-if="selectedLi" />
+      <font-awesome unicode="&#xf096;" v-if="!selectedLi" />
+    </template>
     {{ element.name }}
   </li>
 </template>
@@ -18,7 +20,7 @@ import { TypeApplicabilitiesFilterVuex } from "~/store/applicabilities/applicabi
 import FontAwesome from "~/components/base/font-awesome.vue";
 export default {
   name: "filter-filter-appicabilities-li",
-  components: {FontAwesome},
+  components: { FontAwesome },
   props: {
     element: {
       type: Object as () => PropType<TypeApplicabilitiesFilterVuex>,
