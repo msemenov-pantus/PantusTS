@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { ToggleBody } from "@/composition/toggle/toggle-body.ts";
+import { ToggleBody } from "@/composition/_toggle/toggle-body.ts";
 export default {
   name: "header-dropdown",
   props: {

@@ -23,7 +23,7 @@
 import { ApplicabilitiesFilterForm } from "@/composition/views/search.ts";
 import { FilterApplicabiliries } from "~/composition/search/filter-applicabilities/filter-applicabilities";
 import { FilterApplicabiliriesButtonReset } from "~/composition/search/filter-applicabilities/filter-applicabilities-button-reset";
-import { ToggleClick } from "@/composition/toggle/toggle-click.ts";
+import { ToggleClick } from "@/composition/_toggle/toggle-click.ts";
 import FilterAppicabilitiesPanel from "@/components/filter/filter-applicabilities/filter-appicabilities-panel.vue";
 export default {
   name: "filter-applicabilities",

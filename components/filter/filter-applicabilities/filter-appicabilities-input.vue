@@ -29,7 +29,7 @@
 <script lang="ts">
 import { PropType } from "vue";
 import FilterFilterAppicabilitiesLi from "@/components/filter/filter-applicabilities/filter-appicabilities-li.vue";
-import { ToggleBodyFalse } from "@/composition/toggle/toggle-body-false.ts";
+import { ToggleBodyFalse } from "@/composition/_toggle/toggle-body-false.ts";
 import { TypeApplicabilitiesFilterVuex } from "@/store/applicabilities/applicabilities-type.ts";
 import { FilterApplicabiliriesInput } from "~/composition/search/filter-applicabilities/filter-applicabilities-input";
 

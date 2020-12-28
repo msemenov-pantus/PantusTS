@@ -1,7 +1,7 @@
 <template>
   <div class="custom-range-wrapper">
-    <input type="range" class="custom-range" />
-    <input type="range" class="custom-range" />
+    <input value="0" type="range" class="custom-range" />
+    <input value="60000" type="range" class="custom-range" />
   </div>
 </template>
 
