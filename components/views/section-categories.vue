@@ -1,7 +1,7 @@
 <template>
   <section class="section">
     <h1 class="name-catalog-title">Все категории</h1>
-    <div class="catalog-row">
+    <div class="catalog-row-categories">
       <div
         class="catalog-categories"
         v-for="dataset in categories"
@@ -10,8 +10,13 @@
         <nuxt-link :to="'/'" class="catalog-categories-link">
           {{ dataset.name }}
         </nuxt-link>
-        <div v-if="dataset.children.length !== 0">
-          <nuxt-link class="catalog-categories-link-children" to="" :key="data.id" v-for="data in dataset.children">
+        <div class="catalog-categories-children-wrapper" v-if="dataset.children.length !== 0">
+          <nuxt-link
+            class="catalog-categories-link-children"
+            to=""
+            :key="data.id"
+            v-for="data in dataset.children"
+          >
             {{ data.name }}
           </nuxt-link>
         </div>

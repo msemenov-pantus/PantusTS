@@ -1,9 +1,18 @@
+.catalog-row-categories
+  column-count: 1
+  +xs("column-count", 2)
+  +md("column-count", 3)
+  +lg("column-count", 4)
+
 .catalog-categories
+  break-inside: avoid
   box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15)
   +px(15px)
   +py(10px)
   +mb(20px)
 
+.catalog-categories-children-wrapper
+  +ml(15px)
 .catalog-categories-link
   color: #e1002b
   +fz(16px)
@@ -15,5 +24,6 @@
   color: #436174
   +fz(12px)
   +d-display(block)
+  +mb(5px)
   &:hover
     text-decoration: none
