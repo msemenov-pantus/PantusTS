@@ -16,14 +16,20 @@ export const mutations = {
   SetCategories(state: StateAll, data: TypeCategoriesVuex[]) {
     state.categories = data;
   },
+  SetCategoriesFilter(state: StateAll, data: TypeCategoriesFilterVuex[]) {
+    state.categoriesFilter = data;
+  },
   TrueCheckCategories(state: StateAll) {
     state.checkCategories = true;
+  },
+  TrueCheckCategoriesFilter(state: StateAll) {
+    state.checkCategoriesFilter = true;
   },
 };
 
 export const actions: MutationTree<any> = {
   async RequestCategories({ commit, state, dispatch }) {
-    if (!state.checkBrands) {
+    if (!state.checkCategories) {
       const data: TypeCategoriesVuex[] = await dispatch(
         "categories/categories-axios/CategoriesAxios",
         "views",
@@ -34,15 +40,15 @@ export const actions: MutationTree<any> = {
     }
   },
   async RequestCategoriesFilter({ commit, state, dispatch }) {
-    if (!state.checkApplicabilities) {
+    if (!state.checkCategoriesFilter) {
       // Были ли уже загруженны бренды
       const data: TypeCategoriesFilterVuex[] = await dispatch(
         "categories/categories-axios/CategoriesAxios",
         "filter",
         { root: true }
       );
-      commit("SetCategories", data);
-      commit("TrueCheckCategories");
+      commit("SetCategoriesFilter", data);
+      commit("TrueCheckCategoriesFilter");
     }
   },
 };

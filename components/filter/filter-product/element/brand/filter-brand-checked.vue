@@ -8,10 +8,10 @@
 </template>
 
 <script lang="ts">
-import FontAwesome from "@/components/base/font-awesome.vue";
+import FontAwesome from "~/components/base/font-awesome.vue";
 import { PropType } from "vue";
-import { TypeBrandVuex } from "@/store/brands/brands-type.ts";
-import { FilterBrandChecked } from "@/composition/search/filter-product/filter-brand-checked.ts";
+import { TypeBrandVuex } from "~/store/brands/brands-type.ts";
+import { FilterBrandChecked } from "~/composition/search/filter-product/filter-brand-checked.ts";
 export default {
   name: "filter-brand-checked",
   components: { FontAwesome },
@@ -20,7 +20,7 @@ export default {
       type: Object as () => PropType<TypeBrandVuex>,
     },
   },
-  setup(props) {
+  setup(props:any) {
     return { ...FilterBrandChecked(props.brand.id) };
   },
 };
