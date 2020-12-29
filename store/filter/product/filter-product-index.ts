@@ -14,7 +14,10 @@ export const state = (): StateAll => ({
 });
 
 export const mutations = {
+
   SetValue(store: StateAll, value:{min?:number, max?:number}){
+    value.min = Number(value.min);
+    value.max = Number(value.max);
     if (value.min !== undefined && value.max !== undefined){
       if(value.min <= value.max){
         store.formFilterProduct.minValue  = value.min;
@@ -23,9 +26,26 @@ export const mutations = {
         store.formFilterProduct.minValue  = value.max;
         store.formFilterProduct.maxValue  = value.min;
       }
+    }
+  },
+
+  SetMinValue(store: StateAll, value:{min:number}){
+    value.min = Number(value.min);
+      if(value.min >= store.formFilterProduct.maxValue){
+        store.formFilterProduct.minValue = store.formFilterProduct.maxValue;
+        store.formFilterProduct.maxValue = value.min;
+      }else {
+        store.formFilterProduct.minValue = value.min;
+      }
+  },
+
+  SetMaxValue(store: StateAll, value:{max:number}){
+    value.max = Number(value.max);
+    if(value.max <= store.formFilterProduct.minValue){
+      store.formFilterProduct.minValue = value.max;
+      store.formFilterProduct.maxValue = store.formFilterProduct.minValue;
     }else {
-      value.max || typeof value.max === 'number' ? store.formFilterProduct.maxValue = value.max : null;
-      value.min ? store.formFilterProduct.minValue = value.min : null;
+      store.formFilterProduct.maxValue = value.max;
     }
   },
 

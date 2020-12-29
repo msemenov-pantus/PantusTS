@@ -10,16 +10,14 @@ export function filterProductRange() {
       store.getters["filter/product/filter-product-index/GetMaxValue"],
   );
   const SetMaxValue = (value:number) => {
-    store.commit("filter/product/filter-product-index/SetValue", {
+    store.commit("filter/product/filter-product-index/SetMaxValue", {
       max: value
     })
   }
   const SetMinValue = (value:number) => {
-    console.log(value);
-    store.commit("filter/product/filter-product-index/SetValue", {
+    store.commit("filter/product/filter-product-index/SetMinValue", {
       min: value
     })
   }
-  console.log(MaxValue);
   return { MinValue, MaxValue,SetMaxValue, SetMinValue }
 }
