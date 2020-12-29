@@ -1,6 +1,6 @@
 <template>
   <div class="filter-product-prices-wrapper">
-    <div class="filter-product-prices-text">Цена, Р</div>
+    <div class="filter-product-title">Цена, Р</div>
     <div class="filter-product-prices-value">
       от {{ MinValue }} до {{ MaxValue }}
     </div>
