@@ -10,7 +10,10 @@
         <nuxt-link :to="'/'" class="catalog-categories-link">
           {{ dataset.name }}
         </nuxt-link>
-        <div class="catalog-categories-children-wrapper" v-if="dataset.children.length !== 0">
+        <div
+          class="catalog-categories-children-wrapper"
+          v-if="dataset.children.length !== 0"
+        >
           <nuxt-link
             class="catalog-categories-link-children"
             to=""

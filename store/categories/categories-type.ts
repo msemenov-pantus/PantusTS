@@ -4,29 +4,29 @@ export type TypeCategoriesApi = {
   name: string;
   code: string;
   depthLevel: number;
-  childs:TypeCategoriesApi[]
+  childs: TypeCategoriesApi[];
 };
 export type TypeCategoriesVuex = {
   id: number;
   parentId: number;
   name: string;
   level: number;
-  children: TypeCategoriesApi[] | [];
-  visible: boolean,
+  children: TypeCategoriesVuex[];
+  visible: boolean;
 };
 export type TypeCategoriesFilterVuex = {
   id: number;
   parentId: number;
   name: string;
   level: number;
-  children: TypeCategoriesApi[] | [];
+  children: TypeCategoriesFilterVuex[] ;
   visible: boolean;
   checkedType: boolean;
   indeterminate: boolean;
 };
 export type StateAll = {
   categories: TypeCategoriesVuex[];
-  categoriesFilter: TypeCategoriesFilterVuex[],
+  categoriesFilter: TypeCategoriesFilterVuex[];
   checkCategories: boolean;
   checkCategoriesFilter: boolean;
 };

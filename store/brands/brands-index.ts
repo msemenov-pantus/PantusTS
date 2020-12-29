@@ -1,7 +1,5 @@
 import { StateAll, TypeBrandVuex } from "~/store/brands/brands-type";
 import { MutationTree } from "vuex";
-// import { BrandAxios } from "~/store/brands/brands-axios";
-
 export const state = (): StateAll => ({
   brands: [],
   checkBrands: false,

@@ -4,7 +4,10 @@ export function ApplicabilitiesFilterView() {
   const { store } = useContext();
   useFetch(async () => {
     await Promise.all([
-      store.dispatch("applicabilities/applicabilities-index/RequestApplicabilitiesFilter"),
+      store.dispatch(
+        "applicabilities/applicabilities-index/RequestApplicabilitiesFilter"
+      ),
+      store.dispatch("categories/categories-index/RequestCategoriesFilter"),
       store.dispatch("brands/brands-index/RequestBrands"),
     ]);
   });
@@ -16,5 +19,11 @@ export function ApplicabilitiesFilterForm() {
       "applicabilities/applicabilities-index/GetApplicabilitiesFilter"
     ];
   });
-  return { ApplicabilitiesFilterVuex };
+  const BrandVuex = computed(() => {
+    return store.getters["brands/brands-index/GetBrands"];
+  });
+  const CategoriesFilterVuex = computed(() => {
+    return store.getters["categories/categories-index/GetCategoriesFilter"];
+  });
+  return { ApplicabilitiesFilterVuex, BrandVuex, CategoriesFilterVuex };
 }

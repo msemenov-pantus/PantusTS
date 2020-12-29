@@ -1,11 +1,15 @@
-import { StateAll, TypeCategoriesVuex, TypeCategoriesFilterVuex } from "@/store/categories/categories-type";
+import {
+  StateAll,
+  TypeCategoriesVuex,
+  TypeCategoriesFilterVuex,
+} from "@/store/categories/categories-type";
 import { MutationTree } from "vuex";
 
 export const state = (): StateAll => ({
   categories: [],
   checkCategories: false,
   categoriesFilter: [],
-  checkCategoriesFilter: false
+  checkCategoriesFilter: false,
 });
 
 export const mutations = {
@@ -37,12 +41,14 @@ export const actions: MutationTree<any> = {
         "filter",
         { root: true }
       );
-      commit("SetApplicabilitiesFilter", data);
-      commit("TrueCheckApplicabilitiesFilter");
+      commit("SetCategories", data);
+      commit("TrueCheckCategories");
     }
   },
 };
 
 export const getters = {
   GetCategories: (s: { categories: TypeCategoriesVuex[] }) => s.categories,
+  GetCategoriesFilter: (s: { categoriesFilter: TypeCategoriesVuex[] }) =>
+    s.categoriesFilter,
 };

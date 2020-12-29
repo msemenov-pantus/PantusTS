@@ -1,4 +1,7 @@
-import { TypeCategoriesApi, TypeCategoriesVuex } from "~/store/categories/categories-type";
+import {
+  TypeCategoriesApi,
+  TypeCategoriesVuex,
+} from "~/store/categories/categories-type";
 import { ActionTree } from "vuex";
 
 const CategoriesMap = (data: TypeCategoriesApi[], dataset: any = []) => {
@@ -37,18 +40,16 @@ const CategoriesFilterMap = (data: TypeCategoriesApi[], dataset: any = []) => {
   return dataset;
 };
 
-
 export const actions: ActionTree<any, any> = {
-  async CategoriesAxios({}, check: 'filter' | 'views') {
+  async CategoriesAxios({}, check: "filter" | "views") {
     const requestCategories = await this.$axios.get(
       `${process.env.api}/product_categories?view=tree`
     );
     const data: TypeCategoriesApi[] = requestCategories.data;
-    if(check === 'views'){
+    if (check === "views") {
       return CategoriesMap(data);
-    }else if(check === 'filter'){
+    } else if (check === "filter") {
       return CategoriesFilterMap(data);
     }
-
   },
 };

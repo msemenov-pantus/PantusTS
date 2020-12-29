@@ -1,5 +1,5 @@
 export type sortType = "ASC" | "DESC" | undefined;
-export  type sortName =
+export type sortName =
   | "brand"
   | "sku"
   | "name"
@@ -14,7 +14,7 @@ export type TypeFilterProduct = {
   maxValue: number;
   brandChecked: number[];
   sortType: sortType;
-  sortName:sortName;
+  sortName: sortName;
   search: string;
   categoriesChecked: number[];
   applicabilitiesChecked: number[];
@@ -22,4 +22,3 @@ export type TypeFilterProduct = {
 export type StateAll = {
   formFilterProduct: TypeFilterProduct;
 };
-
