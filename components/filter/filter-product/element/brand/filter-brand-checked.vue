@@ -1,9 +1,9 @@
 <template>
-  <div class="filter-product-checked-wrapper" @click="ClickBrandChecked">
+  <div class="filter-checked-wrapper" @click="ClickBrandChecked">
     <font-awesome unicode="&#xf096;" v-if="Checked === false" />
     <font-awesome unicode="&#xf14a;" v-if="Checked === true" />
     <!--    <font-awesome unicode="&#xf146;" />-->
-    <span class="filter-product-checked">{{ brand.name }}</span>
+    <span class="filter-checked">{{ brand.name }}</span>
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
       type: Object as () => PropType<TypeBrandVuex>,
     },
   },
-  setup(props:any) {
+  setup(props: any) {
     return { ...FilterBrandChecked(props.brand.id) };
   },
 };

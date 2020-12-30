@@ -1,17 +1,22 @@
 <template>
-  <div class="filter-product-checked-wrapper">
-    <div class="filter-product-checked-name">
-      <div>
-        <font-awesome unicode="&#xf096;" />
+  <div class="filter-checked-wrapper">
+    <div class="filter-input-wrapper">
+      <div class="filter-input">
+        <font-awesome class="" unicode="&#xf096;" />
         <!--    <font-awesome unicode="&#xf14a;" v-if="Checked === true" />-->
         <!--    <font-awesome unicode="&#xf146;" />-->
-        <span class="filter-product-checked">{{ categories.name }}</span>
+        <span class="filter-input-name">{{ categories.name }}</span>
       </div>
-      <font-awesome unicode="&#xf078;" />
+      <font-awesome
+        v-if="categories.children.length !== 0"
+        @click="toggleClick"
+        class="filter-icons-dropdown"
+        unicode="&#xf078;"
+      />
     </div>
     <div
       class="catalog-categories-children-wrapper"
-      v-if="categories.children.length !== 0"
+      v-if="categories.children.length !== 0 && toggle === true"
     >
       <filter-categories-checked
         :key="categoriesElem.id"
@@ -23,6 +28,7 @@
 </template>
 
 <script lang="ts">
+import { ToggleClick } from "~/composition/_toggle/toggle-click";
 import FontAwesome from "~/components/base/font-awesome.vue";
 import { PropType } from "vue";
 import { TypeCategoriesFilterVuex } from "~/store/categories/categories-type.ts";
@@ -34,6 +40,9 @@ export default {
     categories: {
       type: Object as () => PropType<TypeCategoriesFilterVuex>,
     },
+  },
+  setup() {
+    return { ...ToggleClick() };
   },
 };
 </script>

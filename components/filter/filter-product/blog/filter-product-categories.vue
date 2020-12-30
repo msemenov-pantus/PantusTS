@@ -1,8 +1,8 @@
 <template>
-  <div class="filter-product-catalog-wrapper">
-    <div class="filter-product-title">Категории</div>
+  <div class="filter-catalog-wrapper">
+    <div class="filter-title">Категории</div>
     <filter-categories-search />
-    <div class="filter-product-overflow">
+    <div class="filter-overflow">
       <filter-categories-checked
         v-for="categories in CategoriesFilterVuex"
         :categories="categories"

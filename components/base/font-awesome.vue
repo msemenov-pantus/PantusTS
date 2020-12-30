@@ -1,5 +1,5 @@
 <template>
-  <div class="fontawesome" v-html="unicode" />
+  <div v-on="$listeners" class="fontawesome" v-html="unicode" />
 </template>
 
 <script>

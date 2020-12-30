@@ -1,9 +1,7 @@
 <template>
-  <div class="filter-product-prices-wrapper">
-    <div class="filter-product-title">Цена, Р</div>
-    <div class="filter-product-prices-value">
-      от {{ MinValue }} до {{ MaxValue }}
-    </div>
+  <div class="filter-prices-wrapper">
+    <div class="filter-title">Цена, Р</div>
+    <div class="filter-prices-value">от {{ MinValue }} до {{ MaxValue }}</div>
     <filter-range-prices />
   </div>
 </template>

@@ -21,4 +21,6 @@ export default {
 </script>
 <style lang="sass">
 @import "assets/sass/filter-product/filter-product"
+@import "assets/sass/filter-product/filter-product-element.sass"
+@import "assets/sass/filter-product/filter-product-children.sass"
 </style>

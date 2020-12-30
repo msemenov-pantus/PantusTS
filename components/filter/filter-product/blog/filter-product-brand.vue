@@ -1,8 +1,8 @@
 <template>
-  <div class="filter-product-catalog-wrapper">
-    <div class="filter-product-title">Бренд</div>
+  <div class="filter-catalog-wrapper">
+    <div class="filter-title">Бренд</div>
     <filter-brand-search />
-    <div class="filter-product-overflow">
+    <div class="filter-overflow">
       <filter-brand-checked
         :brand="brand"
         v-for="brand in BrandVuex"

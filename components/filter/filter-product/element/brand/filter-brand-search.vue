@@ -1,6 +1,6 @@
 <template>
   <input
-    class="filter-product-search"
+    class="filter-search"
     type="text"
     placeholder="Поиск по списку"
   />
