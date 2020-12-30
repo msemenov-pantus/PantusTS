@@ -1,9 +1,11 @@
 <template>
-  <div class="filter-checked-wrapper" @click="ClickBrandChecked">
-    <font-awesome unicode="&#xf096;" v-if="Checked === false" />
-    <font-awesome unicode="&#xf14a;" v-if="Checked === true" />
-    <!--    <font-awesome unicode="&#xf146;" />-->
-    <span class="filter-checked">{{ brand.name }}</span>
+  <div class="filter-input-wrapper" @click="ClickBrandChecked">
+    <div class="filter-input">
+      <font-awesome unicode="&#xf096;" v-if="Checked === false" />
+      <font-awesome unicode="&#xf14a;" v-if="Checked === true" />
+      <!--    <font-awesome unicode="&#xf146;" />-->
+      <span class="filter-input-name">{{ brand.name }}</span>
+    </div>
   </div>
 </template>
 
