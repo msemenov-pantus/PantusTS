@@ -9,7 +9,7 @@
           unicode="&#xf14a;"
           v-if="categories.checkedType === true"
         />
-        <!--    <font-awesome unicode="&#xf146;" />-->
+        <font-awesome unicode="&#xf146;" v-else-if="categories.indeterminate" />
         <font-awesome class="" unicode="&#xf096;" v-else />
         <span class="filter-input-name">{{ categories.name }}</span>
       </div>

@@ -1,4 +1,3 @@
-import { computed, ref } from "@nuxtjs/composition-api";
 import {TypeCategoriesFilterVuex} from "~/store/categories/categories-type";
 export function CategoriesCheckedChildren(store: any) {
   const CategoriesCheckedChildrenValue = (data:TypeCategoriesFilterVuex , value: boolean) =>{
@@ -10,6 +9,5 @@ export function CategoriesCheckedChildren(store: any) {
       }
     })
   }
-
   return { CategoriesCheckedChildrenValue};
 }

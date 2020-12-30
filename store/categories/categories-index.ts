@@ -26,7 +26,7 @@ export const mutations = {
   TrueCheckCategoriesFilter(state: StateAll) {
     state.checkCategoriesFilter = true;
   },
-  SetChecked(state: StateAll, data:{data:TypeCategoriesFilterVuex, index:number, checkedType: boolean, indeterminate: boolean  }){
+  SetChecked(state: StateAll, data:{data:TypeCategoriesFilterVuex, checkedType: boolean, indeterminate: boolean  }){
     Vue.set(data.data, "indeterminate", data.indeterminate );
     Vue.set(data.data, "checkedType", data.checkedType);
   }
