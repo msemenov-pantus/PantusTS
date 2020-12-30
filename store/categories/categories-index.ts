@@ -4,6 +4,7 @@ import {
   TypeCategoriesFilterVuex,
 } from "@/store/categories/categories-type";
 import { MutationTree } from "vuex";
+import Vue from  "vue"
 
 export const state = (): StateAll => ({
   categories: [],
@@ -25,6 +26,10 @@ export const mutations = {
   TrueCheckCategoriesFilter(state: StateAll) {
     state.checkCategoriesFilter = true;
   },
+  SetChecked(state: StateAll, data:{data:TypeCategoriesFilterVuex, index:number, checkedType: boolean, indeterminate: boolean  }){
+    Vue.set(data.data, "indeterminate", data.indeterminate );
+    Vue.set(data.data, "checkedType", data.checkedType);
+  }
 };
 
 export const actions: MutationTree<any> = {

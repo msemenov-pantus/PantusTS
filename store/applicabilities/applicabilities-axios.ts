@@ -21,12 +21,8 @@ const ApplicabilitiesMap = (data: TypeApplicabilitiesApi[]) => {
 const ApplicabilitiesFilterMap = (
   data: TypeApplicabilitiesApi[],
   res?: TypeApplicabilitiesFilterVuex[],
-  topParent?: number
 ) => {
   data.forEach(async (array, index) => {
-    if (array.parentId !== null && topParent === undefined) {
-      topParent = array.parentId;
-    }
     res?.push({
       id: array.id,
       code: array.code,
@@ -41,7 +37,6 @@ const ApplicabilitiesFilterMap = (
       await ApplicabilitiesFilterMap(
         array.childs,
         res?.[index].children,
-        topParent
       );
     }
   });

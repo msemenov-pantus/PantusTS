@@ -23,6 +23,7 @@ export type TypeCategoriesFilterVuex = {
   visible: boolean;
   checkedType: boolean;
   indeterminate: boolean;
+  topParent: number;
 };
 export type StateAll = {
   categories: TypeCategoriesVuex[];

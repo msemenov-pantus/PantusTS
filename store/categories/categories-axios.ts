@@ -21,22 +21,29 @@ const CategoriesMap = (data: TypeCategoriesApi[], dataset: any = []) => {
   return dataset;
 };
 
-const CategoriesFilterMap = (data: TypeCategoriesApi[], dataset: any = []) => {
-  data.forEach(async (array, index) => {
-    dataset.push({
-      id: array.id,
-      parentId: array.parentId,
-      name: array.name,
-      level: array.depthLevel,
-      children: [],
-      visible: true,
-      checkedType: false,
-      indeterminate: false,
+const CategoriesFilterMap = (
+  data: TypeCategoriesApi[],
+  dataset: any = [],
+  topParent: number | undefined = undefined) => {
+    data.forEach(async (array, index) => {
+      if (array.parentId !== null && topParent === undefined) {
+        topParent = array.parentId;
+      }
+      dataset.push({
+        id: array.id,
+        parentId: array.parentId,
+        name: array.name,
+        level: array.depthLevel,
+        children: [],
+        visible: true,
+        topParent: topParent,
+        checkedType: false,
+        indeterminate: false,
+      });
+      if (array.childs.length > 0) {
+        await CategoriesFilterMap(array.childs, dataset[index].children, topParent);
+      }
     });
-    if (array.childs.length > 0) {
-      CategoriesMap(array.childs, dataset[index].children);
-    }
-  });
   return dataset;
 };
 

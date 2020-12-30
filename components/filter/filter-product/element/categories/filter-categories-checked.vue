@@ -1,10 +1,16 @@
 <template>
   <div class="filter-checked-wrapper">
     <div class="filter-input-wrapper">
-      <div class="filter-input">
-        <font-awesome class="" unicode="&#xf096;" />
-        <!--    <font-awesome unicode="&#xf14a;" v-if="Checked === true" />-->
+      <div
+        class="filter-input"
+        @click="CategoriesCheckedClick(categories, !categories.checkedType)"
+      >
+        <font-awesome
+          unicode="&#xf14a;"
+          v-if="categories.checkedType === true"
+        />
         <!--    <font-awesome unicode="&#xf146;" />-->
+        <font-awesome class="" unicode="&#xf096;" v-else />
         <span class="filter-input-name">{{ categories.name }}</span>
       </div>
       <font-awesome
@@ -28,7 +34,8 @@
 </template>
 
 <script lang="ts">
-import { ToggleClick } from "~/composition/_toggle/toggle-click";
+import { ToggleClick } from "~/composition/_toggle/toggle-click.ts";
+import { FilterCategoriesChecked } from "~/composition/search/filter-categories/filter-categories-checked.ts";
 import FontAwesome from "~/components/base/font-awesome.vue";
 import { PropType } from "vue";
 import { TypeCategoriesFilterVuex } from "~/store/categories/categories-type.ts";
@@ -42,7 +49,7 @@ export default {
     },
   },
   setup() {
-    return { ...ToggleClick() };
+    return { ...ToggleClick(), ...FilterCategoriesChecked() };
   },
 };
 </script>
