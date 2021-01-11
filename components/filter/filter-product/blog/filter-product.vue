@@ -3,19 +3,27 @@
     <filter-product-prices />
     <filter-product-brand />
     <filter-product-categories />
+    <button @click="FilterSubmit()">
+      Отправить
+    </button>
   </div>
 </template>
 
-<script>
-import FilterProductPrices from "@/components/filter/filter-product/blog/filter-product-prices";
-import FilterProductBrand from "@/components/filter/filter-product/blog/filter-product-brand";
-import FilterProductCategories from "@/components/filter/filter-product/blog/filter-product-categories";
+<script lang="ts">
+import FilterProductPrices from "@/components/filter/filter-product/blog/filter-product-prices.vue";
+import FilterProductBrand from "@/components/filter/filter-product/blog/filter-product-brand.vue";
+import FilterProductCategories from "@/components/filter/filter-product/blog/filter-product-categories.vue";
+import { FilterSubmit } from "~/composition/search/filter-submit/filter-submit";
+
 export default {
   name: "filter-product",
   components: {
     FilterProductCategories,
     FilterProductBrand,
     FilterProductPrices,
+  },
+  setup() {
+    return { ...FilterSubmit() };
   },
 };
 </script>

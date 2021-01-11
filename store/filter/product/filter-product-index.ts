@@ -62,12 +62,12 @@ export const mutations = {
     store.formFilterProduct.sortName = data.sortName;
   },
 
-  SetCategoriesChecked(store: StateAll, data: number[]) {
-    store.formFilterProduct.categoriesChecked = data;
+  PushCategoriesChecked(store: StateAll, data: number) {
+    store.formFilterProduct.categoriesChecked.push(data);
   },
 
-  SetApplicabilitiesChecked(store: StateAll, data: number[]) {
-    store.formFilterProduct.applicabilitiesChecked = data;
+  PushApplicabilitiesChecked(store: StateAll, data: number) {
+    store.formFilterProduct.applicabilitiesChecked.push(data);
   },
 
   SetBrandChecked(store: StateAll, data: number[]) {
@@ -81,7 +81,12 @@ export const mutations = {
   DeleteBrandChecked(store: StateAll, index: number) {
     store.formFilterProduct.brandChecked.splice(index, 1);
   },
-
+  OnlyResetCategories(store: StateAll){
+    store.formFilterProduct.categoriesChecked = [];
+  },
+  OnlyResetApplicabilities(store: StateAll){
+    store.formFilterProduct.applicabilitiesChecked = [];
+  },
   ResetAll(store: StateAll) {
     store.formFilterProduct = {
       applicabilitiesChecked: [],

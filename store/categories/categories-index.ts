@@ -60,6 +60,6 @@ export const actions: MutationTree<any> = {
 
 export const getters = {
   GetCategories: (s: { categories: TypeCategoriesVuex[] }) => s.categories,
-  GetCategoriesFilter: (s: { categoriesFilter: TypeCategoriesVuex[] }) =>
+  GetCategoriesFilter: (s: { categoriesFilter: TypeCategoriesFilterVuex[] }) =>
     s.categoriesFilter,
 };

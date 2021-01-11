@@ -1,18 +1,20 @@
 import {TypeCategoriesFilterVuex} from "~/store/categories/categories-type";
-export function CategoriesCheckedTrue(store: any) {
-
-  const CategoriesCheckedTrue = (data:TypeCategoriesFilterVuex, arrTrue: number[]= []) =>{
-    if(data.checkedType || data.indeterminate){
-      if(data.checkedType){
-        arrTrue.push(data.id);
+export function CategoriesCheckedTrue(store:any) {
+  const CategoriesCheckedTrue = (dataset:TypeCategoriesFilterVuex) =>{
+    if(dataset.checkedType || dataset.indeterminate){
+      if(dataset.checkedType){
+        store.commit("filter/product/filter-product-index/PushCategoriesChecked", dataset.id);
       }
-      data.children.forEach( element => {
-        if (element.children.length !== 0) {
-          CategoriesCheckedTrue(element, arrTrue);
-        }
+      dataset.children.forEach( element => {
+        CategoriesCheckedTrue(element);
       })
     }
   }
-
-  return { CategoriesCheckedTrue};
+  const CategoriesCheckedTrueAll = (dataset:TypeCategoriesFilterVuex[]) =>{
+    store.commit("filter/product/filter-product-index/OnlyResetCategories");
+    dataset.forEach(data => {
+      CategoriesCheckedTrue(data);
+    })
+  }
+  return { CategoriesCheckedTrueAll };
 }

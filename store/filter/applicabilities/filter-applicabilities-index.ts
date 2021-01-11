@@ -1,6 +1,7 @@
 import { StateAll } from "@/store/filter/applicabilities/filter-applicabilities-type.ts";
 import { TypeFilterApplicabilities } from "@/store/filter/applicabilities/filter-applicabilities-type";
 import Vue from "vue";
+import {MutationTree} from "vuex";
 
 export const state = (): StateAll => ({
   panel: [],
@@ -37,6 +38,14 @@ export const mutations = {
     ];
   },
 };
+
+export const actions: MutationTree<any> = {
+  DeletePanelNullMarka({state}){
+    // state.panel.forEach(element => {
+      // element.
+    // })
+  }
+}
 export const getters = {
   GetPanel: (s: { panel: TypeFilterApplicabilities[] }) => s.panel,
 };
